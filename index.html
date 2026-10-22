@@ -7,49 +7,53 @@
     <!-- Tailwind CSS for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
+    <style>
         .gold-gradient {
             background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        .gold-glow {
+            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.4));
         }
     </style>
 </head>
 <body class="bg-[#0A0F1D] text-slate-100 font-sans antialiased">
 
     <!-- Header / Navbar -->
-   <header class="bg-[#050811] border-b border-slate-800 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-golf-ball-tee text-[#D4AF37] text-2xl"></i>
-                <span class="text-xl font-bold tracking-wider text-white" data-en="ONE GOLF DRIVE CLUB" data-th="วัน กอล์ฟ ไดร์ฟ คลับ">ONE GOLF DRIVE CLUB</span>
+    <header class="bg-[#050811] border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- User Logo styled with gold filter -->
+                <img src="Logo.jpg" alt="Logo" class="w-10 h-10 rounded-full border border-[#D4AF37] object-cover gold-glow">
+                <span class="text-lg md:text-xl font-bold tracking-wider text-white" data-en="ONE GOLF DRIVE CLUB" data-th="วัน กอล์ฟ ไดร์ฟ คลับ" data-cn="第一高尔夫驱动俱乐部">ONE GOLF DRIVE CLUB</span>
             </div>
-            <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-4 md:space-x-6">
                 <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
-                    <a href="#features" class="hover:text-[#D4AF37] transition" data-en="Features" data-th="จุดเด่น">Features</a>
-                    <a href="#bays" class="hover:text-[#D4AF37] transition" data-en="Bay Rates" data-th="อัตราค่าบริการช่องตี">Bay Rates</a>
-                    <a href="#meetings" class="hover:text-[#D4AF37] transition" data-en="Meeting Rooms" data-th="ห้องประชุม">Meeting Rooms</a>
-                    <a href="#booking" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition" data-en="Book Now" data-th="จองเลย">Book Now</a>
+                    <a href="#features" class="hover:text-[#D4AF37] transition" data-en="Features" data-th="จุดเด่น" data-cn="特点">Features</a>
+                    <a href="#bays" class="hover:text-[#D4AF37] transition" data-en="Bay Rates" data-th="อัตราค่าบริการช่องตี" data-cn="击球区价格">Bay Rates</a>
+                    <a href="#meetings" class="hover:text-[#D4AF37] transition" data-en="Meeting Rooms" data-th="ห้องประชุม" data-cn="会议室">Meeting Rooms</a>
+                    <a href="#booking" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition" data-en="Book Now" data-th="จองเลย" data-cn="立即预订">Book Now</a>
                 </nav>
                 <button onclick="toggleLanguage()" class="bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition border border-slate-700">
-                    🌐 <span id="langLabel">TH / EN</span>
+                    🌐 <span id="langLabel">EN / TH / CN</span>
                 </button>
             </div>
         </div>
     </header>
 
-   <!-- Hero Section -->
+    <!-- Hero Section -->
     <section class="relative bg-[url('https://images.unsplash.com/photo-1593111774616-a974fd3fa99f?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center py-24 md:py-36">
         <div class="absolute inset-0 bg-[#0A0F1D]/80"></div>
         <div class="relative max-w-4xl mx-auto text-center px-4 text-white">
             <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-                <span data-en="Experience 3-Storey Simulated Golf at" data-th="สัมผัสประสบการณ์กอล์ฟจำลอง 3 ชั้นที่">Experience 3-Storey Simulated Golf at</span> 
-                <span class="gold-gradient">One Golf Drive</span>
+                <span data-en="Experience 3-Storey Simulated Golf at" data-th="สัมผัสประสบการณ์กอล์ฟจำลอง 3 ชั้นที่" data-cn="体验三层模拟高尔夫">Experience 3-Storey Simulated Golf at</span> 
+                <span class="gold-gradient">One Golf Drive Club</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto" data-en="39 State-of-the-art hitting bays & VVIP rooms across 3 floors with precision ball tracking." data-th="ช่องตีและห้องVVIPล้ำสมัย 39 ช่องทั่วทั้ง 3 ชั้น พร้อมระบบติดตามลูกกอล์ฟความแม่นยำสูง">
+            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto" data-en="39 State-of-the-art hitting bays & VVIP rooms across 3 floors with precision ball tracking." data-th="ช่องตีและห้องVVIPล้ำสมัย 39 ช่องทั่วทั้ง 3 ชั้น พร้อมระบบติดตามลูกกอล์ฟความแม่นยำสูง" data-cn="跨越3层的39个先进击球区和VVIP包厢，配有精密的球轨迹追踪系统。">
                 39 State-of-the-art hitting bays & VVIP rooms across 3 floors with precision ball tracking.
             </p>
-            <a href="#booking" class="bg-[#D4AF37] text-[#0A0F1D] font-bold px-8 py-4 rounded-xl text-lg hover:bg-[#C59B27] transition shadow-lg inline-block shadow-[#D4AF37]/10" data-en="Reserve Your Bay Now" data-th="จองช่องตีของคุณตอนนี้">Reserve Your Bay Now</a>
+            <a href="#booking" class="bg-[#D4AF37] text-[#0A0F1D] font-bold px-8 py-4 rounded-xl text-lg hover:bg-[#C59B27] transition shadow-lg inline-block" data-en="Reserve Your Bay Now" data-th="จองช่องตีของคุณตอนนี้" data-cn="立即预订击球区">Reserve Your Bay Now</a>
         </div>
     </section>
 
@@ -57,27 +61,27 @@
     <section id="bays" class="py-20 bg-[#0A0F1D]">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white" data-en="Hitting Bay & VVIP Pricing" data-th="อัตราค่าบริการช่องตีและห้อง VVIP">Hitting Bay & VVIP Pricing</h2>
-                <p class="text-slate-400" data-en="3 Floors | 13 Bays per floor | 39 Total Bays" data-th="3 ชั้น | 13 ช่องตีต่อชั้น | รวมทั้งหมด 39 ช่องตี">3 Floors | 13 Bays per floor | 39 Total Bays</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white" data-en="Hitting Bay & VVIP Pricing" data-th="อัตราค่าบริการช่องตีและห้อง VVIP" data-cn="击球区与 VVIP 价格">Hitting Bay & VVIP Pricing</h2>
+                <p class="text-slate-400" data-en="3 Floors | 13 Bays per floor | 39 Total Bays" data-th="3 ชั้น | 13 ช่องตีต่อชั้น | รวมทั้งหมด 39 ช่องตี" data-cn="3层楼 | 每层13个击球区 | 共39个击球区">3 Floors | 13 Bays per floor | 39 Total Bays</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <div class="bg-[#111827] border border-slate-800 p-8 rounded-2xl shadow-md">
-                    <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Floors 1 & 2 (Bays 01–26)" data-th="ชั้น 1 และ 2 (ช่อง 01–26)">Floors 1 & 2 (Bays 01–26)</div>
-                    <h3 class="text-2xl font-bold mb-4 text-white" data-en="Standard Hitting Bays" data-th="ช่องตีมาตรฐาน">Standard Hitting Bays</h3>
+                    <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Floors 1 & 2 (Bays 01–26)" data-th="ชั้น 1 และ 2 (ช่อง 01–26)" data-cn="1层和2层 (01–26号击球区)">Floors 1 & 2 (Bays 01–26)</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-en="Standard Hitting Bays" data-th="ช่องตีมาตรฐาน" data-cn="标准击球区">Standard Hitting Bays</h3>
                     <ul class="space-y-3 text-slate-300 text-sm mb-6">
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Mon – Thu" data-th="วันจันทร์ – พฤหัสบดี">Mon – Thu</span> <strong class="text-white">฿600 / hour</strong></li>
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Fri – Sun" data-th="วันศุกร์ – อาทิตย์">Fri – Sun</span> <strong class="text-white">฿900 / hour</strong></li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Mon – Thu" data-th="วันจันทร์ – พฤหัสบดี" data-cn="周一至周四">Mon – Thu</span> <strong class="text-white">฿600 / hour</strong></li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Fri – Sun" data-th="วันศุกร์ – อาทิตย์" data-cn="周五至周日">Fri – Sun</span> <strong class="text-white">฿900 / hour</strong></li>
                     </ul>
                 </div>
 
                 <div class="bg-[#111827] border-2 border-[#D4AF37] p-8 rounded-2xl shadow-lg relative">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#0A0F1D] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-en="Exclusive" data-th="เอ็กซ์คลูซีฟ">Exclusive</div>
-                    <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Floor 3 (VVIP Rooms 1–6)" data-th="ชั้น 3 (ห้อง VVIP 1–6)">Floor 3 (VVIP Rooms 1–6)</div>
-                    <h3 class="text-2xl font-bold mb-4 text-white" data-en="VVIP Private Rooms" data-th="ห้อง VVIP ส่วนตัว">VVIP Private Rooms</h3>
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#0A0F1D] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-en="Exclusive" data-th="เอ็กซ์คลูซีฟ" data-cn="专属">Exclusive</div>
+                    <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Floor 3 (VVIP Rooms 1–6)" data-th="ชั้น 3 (ห้อง VVIP 1–6)" data-cn="3层 (VVIP包厢 1–6)">Floor 3 (VVIP Rooms 1–6)</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-en="VVIP Private Rooms" data-th="ห้อง VVIP ส่วนตัว" data-cn="VVIP 私人包厢">VVIP Private Rooms</h3>
                     <ul class="space-y-3 text-slate-300 text-sm mb-6">
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Mon – Thu" data-th="วันจันทร์ – พฤหัสบดี">Mon – Thu</span> <strong class="text-white">฿1,700 / room / hr</strong></li>
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Fri – Sun" data-th="วันศุกร์ – อาทิตย์">Fri – Sun</span> <strong class="text-white">฿2,500 / room / hr</strong></li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Mon – Thu" data-th="วันจันทร์ – พฤหัสบดี" data-cn="周一至周四">Mon – Thu</span> <strong class="text-white">฿1,700 / room / hr</strong></li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Fri – Sun" data-th="วันศุกร์ – อาทิตย์" data-cn="周五至周日">Fri – Sun</span> <strong class="text-white">฿2,500 / room / hr</strong></li>
                     </ul>
                 </div>
             </div>
@@ -88,57 +92,57 @@
     <section id="meetings" class="py-20 bg-[#050811] border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white" data-en="Meeting Room Packages" data-th="แพ็กเกจห้องประชุม">Meeting Room Packages</h2>
-                <p class="text-slate-400" data-en="Host your corporate seminars, workshops, and business discussions with us." data-th="จัดสัมมนา เวิร์กช็อป และการประชุมธุรกิจของคุณกับเรา">Host your corporate seminars, workshops, and business discussions with us.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white" data-en="Meeting Room Packages" data-th="แพ็กเกจห้องประชุม" data-cn="会议室套餐">Meeting Room Packages</h2>
+                <p class="text-slate-400" data-en="Host your corporate seminars, workshops, and business discussions with us." data-th="จัดสัมมนา เวิร์กช็อป และการประชุมธุรกิจของคุณกับเรา" data-cn="在我们这里举办您的企业研讨会、工作坊和商务洽谈。">Host your corporate seminars, workshops, and business discussions with us.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Package 1 -->
                 <div class="bg-[#111827] border border-slate-800 rounded-2xl p-8 flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Half Day" data-th="ครึ่งวัน">Half Day</div>
-                        <h3 class="text-2xl font-bold mb-4 text-white" data-en="Meeting Package" data-th="แพ็กเกจประชุม">Meeting Package</h3>
-                        <div class="text-3xl font-extrabold text-white mb-6">฿950<span class="text-sm font-normal text-slate-400" data-en="++ / person" data-th="++ / ท่าน">++ / person</span></div>
+                        <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Half Day" data-th="ครึ่งวัน" data-cn="半天">Half Day</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white" data-en="Meeting Package" data-th="แพ็กเกจประชุม" data-cn="会议套餐">Meeting Package</h3>
+                        <div class="text-3xl font-extrabold text-white mb-6">฿950<span class="text-sm font-normal text-slate-400" data-en="++ / person" data-th="++ / ท่าน" data-cn="++ / 位">++ / person</span></div>
                         <ul class="space-y-3 text-slate-300 text-sm mb-8">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Half Day Room Access" data-th="ใช้ห้องประชุมครึ่งวัน">Half Day Room Access</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Coffee Break" data-th="คอฟฟี่เบรก 1 เบรก">1 Coffee Break</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน">Standard AV Setup & Wi-Fi</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Half Day Room Access" data-th="ใช้ห้องประชุมครึ่งวัน" data-cn="半天会议室使用">Half Day Room Access</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Coffee Break" data-th="คอฟฟี่เบรก 1 เบรก" data-cn="1次茶歇">1 Coffee Break</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน" data-cn="标准音视频设备与Wi-Fi">Standard AV Setup & Wi-Fi</span></li>
                         </ul>
                     </div>
-                    <a href="#booking" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้">Select Package</a>
+                    <a href="#booking" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้" data-cn="选择套餐">Select Package</a>
                 </div>
 
                 <!-- Package 2 -->
                 <div class="bg-[#111827] border-2 border-[#D4AF37] rounded-2xl p-8 flex flex-col justify-between relative shadow-lg">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#0A0F1D] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-en="Most Popular" data-th="ยอดนิยมที่สุด">Most Popular</div>
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#0A0F1D] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-en="Most Popular" data-th="ยอดนิยมที่สุด" data-cn="最受欢迎">Most Popular</div>
                     <div>
-                        <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Half Day with Lunch" data-th="ครึ่งวัน พร้อมอาหารกลางวัน">Half Day with Lunch</div>
-                        <h3 class="text-2xl font-bold mb-4 text-white" data-en="Meeting Package" data-th="แพ็กเกจประชุม">Meeting Package</h3>
-                        <div class="text-3xl font-extrabold text-white mb-6">฿1,350<span class="text-sm font-normal text-slate-400" data-en="++ / person" data-th="++ / ท่าน">++ / person</span></div>
+                        <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Half Day with Lunch" data-th="ครึ่งวัน พร้อมอาหารกลางวัน" data-cn="半天含午餐">Half Day with Lunch</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white" data-en="Meeting Package" data-th="แพ็กเกจประชุม" data-cn="会议套餐">Meeting Package</h3>
+                        <div class="text-3xl font-extrabold text-white mb-6">฿1,350<span class="text-sm font-normal text-slate-400" data-en="++ / person" data-th="++ / ท่าน" data-cn="++ / 位">++ / person</span></div>
                         <ul class="space-y-3 text-slate-300 text-sm mb-8">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Half Day Room Access" data-th="ใช้ห้องประชุมครึ่งวัน">Half Day Room Access</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Coffee Break" data-th="คอฟฟี่เบรก 1 เบรก">1 Coffee Break</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Gourmet Lunch" data-th="อาหารกลางวัน 1 มื้อ">1 Gourmet Lunch</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน">Standard AV Setup & Wi-Fi</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Half Day Room Access" data-th="ใช้ห้องประชุมครึ่งวัน" data-cn="半天会议室使用">Half Day Room Access</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Coffee Break" data-th="คอฟฟี่เบรก 1 เบรก" data-cn="1次茶歇">1 Coffee Break</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Gourmet Lunch" data-th="อาหารกลางวัน 1 มื้อ" data-cn="1顿精美午餐">1 Gourmet Lunch</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน" data-cn="标准音视频设备与Wi-Fi">Standard AV Setup & Wi-Fi</span></li>
                         </ul>
                     </div>
-                    <a href="#booking" class="w-full bg-[#D4AF37] text-[#0A0F1D] hover:bg-[#C59B27] font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้">Select Package</a>
+                    <a href="#booking" class="w-full bg-[#D4AF37] text-[#0A0F1D] hover:bg-[#C59B27] font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้" data-cn="选择套餐">Select Package</a>
                 </div>
 
                 <!-- Package 3 -->
                 <div class="bg-[#111827] border border-slate-800 rounded-2xl p-8 flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Full Day" data-th="เต็มวัน">Full Day</div>
-                        <h3 class="text-2xl font-bold mb-4 text-white" data-en="Meeting Package" data-th="แพ็กเกจประชุม">Meeting Package</h3>
-                        <div class="text-3xl font-extrabold text-white mb-6">฿1,550<span class="text-sm font-normal text-slate-400" data-en="++ / person" data-th="++ / ท่าน">++ / person</span></div>
+                        <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Full Day" data-th="เต็มวัน" data-cn="全天">Full Day</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white" data-en="Meeting Package" data-th="แพ็กเกจประชุม" data-cn="会议套餐">Meeting Package</h3>
+                        <div class="text-3xl font-extrabold text-white mb-6">฿1,550<span class="text-sm font-normal text-slate-400" data-en="++ / person" data-th="++ / ท่าน" data-cn="++ / 位">++ / person</span></div>
                         <ul class="space-y-3 text-slate-300 text-sm mb-8">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Full Day Room Access" data-th="ใช้ห้องประชุมเต็มวัน">Full Day Room Access</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="2 Coffee Breaks" data-th="คอฟฟี่เบรก 2 เบรก">2 Coffee Breaks</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Gourmet Lunch" data-th="อาหารกลางวัน 1 มื้อ">1 Gourmet Lunch</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน">Standard AV Setup & Wi-Fi</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Full Day Room Access" data-th="ใช้ห้องประชุมเต็มวัน" data-cn="全天会议室使用">Full Day Room Access</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="2 Coffee Breaks" data-th="คอฟฟี่เบรก 2 เบรก" data-cn="2次茶歇">2 Coffee Breaks</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Gourmet Lunch" data-th="อาหารกลางวัน 1 มื้อ" data-cn="1顿精美午餐">1 Gourmet Lunch</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน" data-cn="标准音视频设备与Wi-Fi">Standard AV Setup & Wi-Fi</span></li>
                         </ul>
                     </div>
-                    <a href="#booking" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้">Select Package</a>
+                    <a href="#booking" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้" data-cn="选择套餐">Select Package</a>
                 </div>
             </div>
         </div>
@@ -148,20 +152,20 @@
     <section id="booking" class="py-20 bg-[#0A0F1D] border-t border-slate-800">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2 text-white" data-en="Make a Reservation" data-th="จองบริการ">Make a Reservation</h2>
-                <p class="text-slate-400" data-en="Select your date, time slot, duration, and choose your preferred hitting bay." data-th="เลือกวันที่ รอบเวลา ระยะเวลา และช่องตีที่คุณต้องการ">Select your date, time slot, duration, and choose your preferred hitting bay.</p>
+                <h2 class="text-3xl font-bold mb-2 text-white" data-en="Make a Reservation" data-th="จองบริการ" data-cn="在线预订">Make a Reservation</h2>
+                <p class="text-slate-400" data-en="Select your date, time slot, duration, and choose your preferred hitting bay." data-th="เลือกวันที่ รอบเวลา ระยะเวลา และช่องตีที่คุณต้องการ" data-cn="选择您的日期、时间段、时长以及您偏好的击球区。">Select your date, time slot, duration, and choose your preferred hitting bay.</p>
             </div>
 
             <form id="reservationForm" class="bg-[#111827] border border-slate-800 p-8 rounded-2xl space-y-8 shadow-xl">
                 <!-- Step 1: Date, Time & Duration -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Booking Date" data-th="วันที่จอง">Booking Date</label>
-                        <input type="date" id="date" required onchange="updateAvailability()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Booking Date" data-th="วันที่จอง" data-cn="预订日期">Booking Date</label>
+                        <input type="date" id="date" required onchange="calculatePrice()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Start Time" data-th="เวลาเริ่มต้น">Start Time</label>
-                        <select id="time" onchange="updateAvailability()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Start Time" data-th="เวลาเริ่มต้น" data-cn="开始时间">Start Time</label>
+                        <select id="time" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
                             <option value="09:00">09:00 AM</option>
                             <option value="10:00">10:00 AM</option>
                             <option value="11:00">11:00 AM</option>
@@ -179,53 +183,53 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Duration" data-th="ระยะเวลา">Duration</label>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Duration" data-th="ระยะเวลา" data-cn="时长">Duration</label>
                         <select id="duration" onchange="calculatePrice()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
-                            <option value="1" data-en="1 Hour" data-th="1 ชั่วโมง">1 Hour</option>
-                            <option value="2" data-en="2 Hours" data-th="2 ชั่วโมง">2 Hours</option>
+                            <option value="1" data-en="1 Hour" data-th="1 ชั่วโมง" data-cn="1 小时">1 Hour</option>
+                            <option value="2" data-en="2 Hours" data-th="2 ชั่วโมง" data-cn="2 小时">2 Hours</option>
                         </select>
                     </div>
                 </div>
 
-               <!-- Step 2: Bay Selector Grid -->
+                <!-- Step 2: Bay Selector Grid -->
                 <div>
                     <label class="block text-sm font-medium text-slate-300 mb-3">
-                        <span data-en="Select Hitting Bay / VVIP Room (Green = Available)" data-th="เลือกช่องตี / ห้อง VVIP (สีเขียว = ว่าง)">Select Hitting Bay / VVIP Room (Green = Available)</span>
+                        <span data-en="Select Hitting Bay / VVIP Room (Green = Available)" data-th="เลือกช่องตี / ห้อง VVIP (สีเขียว = ว่าง)" data-cn="选择击球区 / VVIP 包厢（绿色 = 可用）">Select Hitting Bay / VVIP Room (Green = Available)</span>
                     </label>
                     
                     <div class="space-y-4 bg-[#0A0F1D] p-6 rounded-xl border border-slate-800">
                         <!-- Floor 3 VVIP -->
                         <div>
-                            <div class="text-xs font-bold text-[#D4AF37] uppercase mb-2" data-en="Floor 3: VVIP Rooms" data-th="ชั้น 3: ห้อง VVIP">Floor 3: VVIP Rooms</div>
+                            <div class="text-xs font-bold text-[#D4AF37] uppercase mb-2" data-en="Floor 3: VVIP Rooms" data-th="ชั้น 3: ห้อง VVIP" data-cn="3层：VVIP 包厢">Floor 3: VVIP Rooms</div>
                             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="floor3Grid"></div>
                         </div>
                         <!-- Floor 2 -->
                         <div>
-                            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 2 (Bays 14–26)" data-th="ชั้น 2 (ช่อง 14–26)">Floor 2 (Bays 14–26)</div>
+                            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 2 (Bays 14–26)" data-th="ชั้น 2 (ช่อง 14–26)" data-cn="2层 (14–26号击球区)">Floor 2 (Bays 14–26)</div>
                             <div class="grid grid-cols-7 sm:grid-cols-13 gap-1.5" id="floor2Grid"></div>
                         </div>
                         <!-- Floor 1 -->
                         <div>
-                            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 1 (Bays 01–13)" data-th="ชั้น 1 (ช่อง 01–13)">Floor 1 (Bays 01–13)</div>
+                            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 1 (Bays 01–13)" data-th="ชั้น 1 (ช่อง 01–13)" data-cn="1层 (01–13号击球区)">Floor 1 (Bays 01–13)</div>
                             <div class="grid grid-cols-7 sm:grid-cols-13 gap-1.5" id="floor1Grid"></div>
                         </div>
                     </div>
                     <input type="hidden" id="selectedBay" required>
-                    <p id="selectedBayDisplay" class="text-sm font-bold text-[#D4AF37] mt-2" data-en="Selected: None" data-th="ช่องที่เลือก: ยังไม่ได้เลือก">Selected: None</p>
+                    <p id="selectedBayDisplay" class="text-sm font-bold text-[#D4AF37] mt-2" data-en="Selected: None" data-th="ช่องที่เลือก: ยังไม่ได้เลือก" data-cn="已选择：无">Selected: None</p>
                 </div>
 
                 <!-- Step 3: Customer Details -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Full Name *" data-th="ชื่อ - นามสกุล *">Full Name *</label>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Full Name *" data-th="ชื่อ - นามสกุล *" data-cn="姓名 *">Full Name *</label>
                         <input type="text" id="name" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]" placeholder="John Doe">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Email *" data-th="อีเมล *">Email *</label>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Email *" data-th="อีเมล *" data-cn="电子邮箱 *">Email *</label>
                         <input type="email" id="email" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]" placeholder="john@example.com">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Phone Number (Optional)" data-th="เบอร์โทรศัพท์ (ไม่บังคับ)">Phone Number (Optional)</label>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Phone Number (Optional)" data-th="เบอร์โทรศัพท์ (ไม่บังคับ)" data-cn="电话号码（可选）">Phone Number (Optional)</label>
                         <input type="tel" id="phone" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]" placeholder="081-234-5678">
                     </div>
                 </div>
@@ -233,12 +237,12 @@
                 <!-- Price Summary & Confirm Button -->
                 <div class="bg-[#0A0F1D] p-6 rounded-xl border border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div>
-                        <div class="text-sm text-slate-400" data-en="Estimated Price Summary" data-th="สรุปราคาราคาประเมิน">Estimated Price Summary</div>
+                        <div class="text-sm text-slate-400" data-en="Estimated Price Summary" data-th="สรุปราคาประเมิน" data-cn="预估价格汇总">Estimated Price Summary</div>
                         <div id="priceDisplay" class="text-2xl font-extrabold text-[#D4AF37]">฿0</div>
                     </div>
                     <div class="flex space-x-3 w-full sm:w-auto">
-                        <button type="button" onclick="resetForm()" class="bg-slate-800 text-slate-300 font-bold px-6 py-3 rounded-xl hover:bg-slate-700 transition border border-slate-700" data-en="Cancel" data-th="ยกเลิก">Cancel</button>
-                        <button type="submit" class="bg-[#D4AF37] text-[#0A0F1D] font-bold px-8 py-3 rounded-xl hover:bg-[#C59B27] transition shadow-md flex-1 sm:flex-none" data-en="Confirm Reservation" data-th="ยืนยันการจอง">Confirm Reservation</button>
+                        <button type="button" onclick="resetForm()" class="bg-slate-800 text-slate-300 font-bold px-6 py-3 rounded-xl hover:bg-slate-700 transition border border-slate-700" data-en="Cancel" data-th="ยกเลิก" data-cn="取消">Cancel</button>
+                        <button type="submit" class="bg-[#D4AF37] text-[#0A0F1D] font-bold px-8 py-3 rounded-xl hover:bg-[#C59B27] transition shadow-md flex-1 sm:flex-none" data-en="Confirm Reservation" data-th="ยืนยันการจอง" data-cn="确认预订">Confirm Reservation</button>
                     </div>
                 </div>
             </form>
@@ -248,19 +252,19 @@
                 <div class="flex items-center space-x-3 mb-4">
                     <i class="fa-solid fa-circle-check text-3xl text-[#D4AF37]"></i>
                     <div>
-                        <h3 class="text-xl font-bold text-white" data-en="Booking Confirmed Successfully!" data-th="ยืนยันการจองสำเร็จ!">Booking Confirmed Successfully!</h3>
-                        <p class="text-xs text-[#D4AF37] font-semibold uppercase tracking-wider" data-en="Status: Confirmed & Reserved" data-th="สถานะ: ยืนยันและจองเรียบร้อยแล้ว">Status: Confirmed & Reserved</p>
+                        <h3 class="text-xl font-bold text-white" data-en="Booking Confirmed Successfully!" data-th="ยืนยันการจองสำเร็จ!" data-cn="预订成功！">Booking Confirmed Successfully!</h3>
+                        <p class="text-xs text-[#D4AF37] font-semibold uppercase tracking-wider" data-en="Status: Confirmed & Reserved" data-th="สถานะ: ยืนยันและจองเรียบร้อยแล้ว" data-cn="状态：已确认并预留">Status: Confirmed & Reserved</p>
                     </div>
                 </div>
                 <div id="bookingSummaryDetails" class="space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4"></div>
-                <button onclick="resetForm()" class="mt-6 bg-[#D4AF37] text-[#0A0F1D] font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-[#C59B27] transition" data-en="Book Another Bay" data-th="จองช่องตีอื่นเพิ่ม">Book Another Bay</button>
+                <button onclick="resetForm()" class="mt-6 bg-[#D4AF37] text-[#0A0F1D] font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-[#C59B27] transition" data-en="Book Another Bay" data-th="จองช่องตีอื่นเพิ่ม" data-cn="预订其他击球区">Book Another Bay</button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-[#050811] border-t border-slate-800 py-8 text-center text-slate-400 text-sm">
-        <p>&copy; 2026 One Golf Drive Club. <span data-en="All rights reserved." data-th="สงวนลิขสิทธิ์ทั้งหมด">All rights reserved.</span></p>
+        <p>&copy; 2026 One Golf Drive Club. <span data-en="All rights reserved." data-th="สงวนลิขสิทธิ์ทั้งหมด" data-cn="版权所有。">All rights reserved.</span></p>
     </footer>
 
     <!-- Interactive Script -->
@@ -268,9 +272,9 @@
         let currentLang = 'en';
         let selectedBayData = null;
 
-        // Initialize Bay Grid
+        // Initialize Bay Grid - ALL Bays clickable & active
         function initBays() {
-            // Floor 3 VVIP (Rooms 1-6 representing Bay pairs 27-39)
+            // Floor 3 VVIP
             const f3 = document.getElementById('floor3Grid');
             f3.innerHTML = '';
             const vvipRooms = [
@@ -284,7 +288,7 @@
             vvipRooms.forEach(room => {
                 const btn = document.createElement('button');
                 btn.type = 'button';
-                btn.className = 'bay-btn p-3 rounded-lg border text-left transition bg-emerald-950/60 border-emerald-600 text-emerald-300 hover:bg-emerald-900/60';
+                btn.className = 'bay-btn p-3 rounded-lg border text-left transition bg-emerald-950/60 border-emerald-600 text-emerald-300 hover:bg-emerald-900/60 cursor-pointer';
                 btn.innerHTML = `<div class="font-bold text-sm">${room.id}</div><div class="text-xs opacity-75">${room.bays}</div>`;
                 btn.onclick = () => selectBay(room.id, 'VVIP', btn);
                 f3.appendChild(btn);
@@ -306,20 +310,18 @@
         }
 
         function createBayButton(container, bayName, type) {
-       const btn = document.createElement('button');
-       btn.type = 'button';
-       btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-emerald-950/60 border-emerald-600 text-emerald-300 hover:bg-emerald-900/60 cursor-pointer';
-       btn.innerText = bayName.replace('Bay ', '');
-       btn.onclick = () => selectBay(bayName, type, btn);
-       container.appendChild(btn);
-   }
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-emerald-950/60 border-emerald-600 text-emerald-300 hover:bg-emerald-900/60 cursor-pointer';
+            btn.innerText = bayName.replace('Bay ', '');
+            btn.onclick = () => selectBay(bayName, type, btn);
+            container.appendChild(btn);
+        }
 
         function selectBay(bayName, type, btnElement) {
             document.querySelectorAll('.bay-btn').forEach(b => {
-                if(!b.disabled) {
-                    b.classList.remove('ring-2', 'ring-[#D4AF37]', 'bg-[#D4AF37]', 'text-[#0A0F1D]');
-                    b.classList.add('bg-emerald-950/60', 'text-emerald-300');
-                }
+                b.classList.remove('ring-2', 'ring-[#D4AF37]', 'bg-[#D4AF37]', 'text-[#0A0F1D]');
+                b.classList.add('bg-emerald-950/60', 'text-emerald-300');
             });
             btnElement.classList.remove('bg-emerald-950/60', 'text-emerald-300');
             btnElement.classList.add('bg-[#D4AF37]', 'text-[#0A0F1D]', 'ring-2', 'ring-[#D4AF37]', 'font-extrabold');
@@ -327,7 +329,14 @@
             selectedBayData = { name: bayName, type: type };
             document.getElementById('selectedBay').value = bayName;
             
-            let displayTxt = currentLang === 'th' ? `เลือกแล้ว: ${bayName} (${type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})` : `Selected: ${bayName} (${type})`;
+            let displayTxt = '';
+            if (currentLang === 'th') {
+                displayTxt = `เลือกแล้ว: ${bayName} (${type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})`;
+            } else if (currentLang === 'cn') {
+                displayTxt = `已选择：${bayName} (${type === 'VVIP' ? '3层 VVIP 包厢' : '标准击球区'})`;
+            } else {
+                displayTxt = `Selected: ${bayName} (${type})`;
+            }
             document.getElementById('selectedBayDisplay').innerText = displayTxt;
 
             calculatePrice();
@@ -360,22 +369,29 @@
             document.getElementById('priceDisplay').innerText = `฿${total.toLocaleString()}`;
         }
 
-        function updateAvailability() {
-            initBays();
-            selectedBayData = null;
-            document.getElementById('selectedBay').value = '';
-            document.getElementById('selectedBayDisplay').innerText = currentLang === 'th' ? 'ช่องที่เลือก: ยังไม่ได้เลือก' : 'Selected: None';
-            calculatePrice();
-        }
-
         function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'th' : 'en';
-            document.getElementById('langLabel').innerText = currentLang === 'en' ? 'TH / EN' : 'EN / TH';
+            if (currentLang === 'en') currentLang = 'th';
+            else if (currentLang === 'th') currentLang = 'cn';
+            else currentLang = 'en';
+
+            document.getElementById('langLabel').innerText = currentLang.toUpperCase() + ' / ' + (currentLang === 'en' ? 'TH' : currentLang === 'th' ? 'CN' : 'EN');
             
             document.querySelectorAll('[data-en]').forEach(el => {
                 const text = el.getAttribute(`data-${currentLang}`);
                 if (text) el.innerText = text;
             });
+
+            if (selectedBayData) {
+                let displayTxt = '';
+                if (currentLang === 'th') {
+                    displayTxt = `เลือกแล้ว: ${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})`;
+                } else if (currentLang === 'cn') {
+                    displayTxt = `已选择：${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? '3层 VVIP 包厢' : '标准击球区'})`;
+                } else {
+                    displayTxt = `Selected: ${selectedBayData.name} (${selectedBayData.type})`;
+                }
+                document.getElementById('selectedBayDisplay').innerText = displayTxt;
+            }
         }
 
         // Set minimum date to today automatically
@@ -388,7 +404,7 @@
             e.preventDefault();
 
             if (!selectedBayData) {
-                alert(currentLang === 'th' ? 'กรุณาเลือกช่องตีหรือห้อง VVIP' : 'Please select a hitting bay or VVIP room.');
+                alert(currentLang === 'th' ? 'กรุณาเลือกช่องตีหรือห้อง VVIP' : currentLang === 'cn' ? '请选择击球区或 VVIP 包厢' : 'Please select a hitting bay or VVIP room.');
                 return;
             }
 
@@ -401,19 +417,32 @@
             const price = document.getElementById('priceDisplay').innerText;
             const refCode = 'OGD-' + Math.floor(100000 + Math.random() * 900000);
 
-            const summaryHTML = currentLang === 'th' ? `
-                <p><strong>รหัสอ้างอิงการจอง (Reference):</strong> <span class="text-[#D4AF37] font-bold">${refCode}</span></p>
-                <p><strong>ผู้จอง:</strong> ${name} (${email})</p>
-                <p><strong>ช่องตี / ห้อง:</strong> ${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})</p>
-                <p><strong>วันที่ & เวลา:</strong> ${date} เวลา ${time} (${duration} ชั่วโมง)</p>
-                <p><strong>ราคารวมสุทธิ:</strong> <span class="text-white font-bold text-lg">${price}</span></p>
-            ` : `
-                <p><strong>Booking Reference:</strong> <span class="text-[#D4AF37] font-bold">${refCode}</span></p>
-                <p><strong>Customer:</strong> ${name} (${email})</p>
-                <p><strong>Selected Bay/Room:</strong> ${selectedBayData.name} (${selectedBayData.type})</p>
-                <p><strong>Date & Time:</strong> ${date} at ${time} (${duration} Hour${duration > 1 ? 's' : ''})</p>
-                <p><strong>Total Price:</strong> <span class="text-white font-bold text-lg">${price}</span></p>
-            `;
+            let summaryHTML = '';
+            if (currentLang === 'th') {
+                summaryHTML = `
+                    <p><strong>รหัสอ้างอิงการจอง (Reference):</strong> <span class="text-[#D4AF37] font-bold">${refCode}</span></p>
+                    <p><strong>ผู้จอง:</strong> ${name} (${email})</p>
+                    <p><strong>ช่องตี / ห้อง:</strong> ${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})</p>
+                    <p><strong>วันที่ & เวลา:</strong> ${date} เวลา ${time} (${duration} ชั่วโมง)</p>
+                    <p><strong>ราคารวมสุทธิ:</strong> <span class="text-white font-bold text-lg">${price}</span></p>
+                `;
+            } else if (currentLang === 'cn') {
+                summaryHTML = `
+                    <p><strong>预订参考号 (Reference):</strong> <span class="text-[#D4AF37] font-bold">${refCode}</span></p>
+                    <p><strong>客户姓名:</strong> ${name} (${email})</p>
+                    <p><strong>所选击球区/包厢:</strong> ${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? '3层 VVIP 包厢' : '标准击球区'})</p>
+                    <p><strong>日期与时间:</strong> ${date} ${time} (${duration} 小时)</p>
+                    <p><strong>总价:</strong> <span class="text-white font-bold text-lg">${price}</span></p>
+                `;
+            } else {
+                summaryHTML = `
+                    <p><strong>Booking Reference:</strong> <span class="text-[#D4AF37] font-bold">${refCode}</span></p>
+                    <p><strong>Customer:</strong> ${name} (${email})</p>
+                    <p><strong>Selected Bay/Room:</strong> ${selectedBayData.name} (${selectedBayData.type})</p>
+                    <p><strong>Date & Time:</strong> ${date} at ${time} (${duration} Hour${duration > 1 ? 's' : ''})</p>
+                    <p><strong>Total Price:</strong> <span class="text-white font-bold text-lg">${price}</span></p>
+                `;
+            }
 
             document.getElementById('bookingSummaryDetails').innerHTML = summaryHTML;
             document.getElementById('successMessage').classList.remove('hidden');
