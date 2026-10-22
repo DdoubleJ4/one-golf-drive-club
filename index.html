@@ -306,22 +306,13 @@
         }
 
         function createBayButton(container, bayName, type) {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            const isBooked = false;
-            
-            if (isBooked) {
-                btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-slate-800 border-slate-700 text-slate-600 cursor-not-allowed';
-                btn.disabled = true;
-                btn.title = 'Unavailable / Booked';
-                btn.innerText = bayName.replace('Bay ', '');
-            } else {
-                btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-emerald-950/60 border-emerald-600 text-emerald-300 hover:bg-emerald-900/60';
-                btn.innerText = bayName.replace('Bay ', '');
-                btn.onclick = () => selectBay(bayName, type, btn);
-            }
-            container.appendChild(btn);
-        }
+       const btn = document.createElement('button');
+       btn.type = 'button';
+       btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-emerald-950/60 border-emerald-600 text-emerald-300 hover:bg-emerald-900/60 cursor-pointer';
+       btn.innerText = bayName.replace('Bay ', '');
+       btn.onclick = () => selectBay(bayName, type, btn);
+       container.appendChild(btn);
+   }
 
         function selectBay(bayName, type, btnElement) {
             document.querySelectorAll('.bay-btn').forEach(b => {
