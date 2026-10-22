@@ -308,7 +308,7 @@
         function createBayButton(container, bayName, type) {
             const btn = document.createElement('button');
             btn.type = 'button';
-            const isBooked = (parseInt(bayName.replace('Bay ', '')) % 7 === 0);
+            const isBooked = false;
             
             if (isBooked) {
                 btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-slate-800 border-slate-700 text-slate-600 cursor-not-allowed';
