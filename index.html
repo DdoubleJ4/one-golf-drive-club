@@ -7,70 +7,77 @@
     <!-- Tailwind CSS for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+        .gold-gradient {
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body class="bg-[#F7F5F0] text-[#2C2A29] font-sans antialiased">
+<body class="bg-[#0A0F1D] text-slate-100 font-sans antialiased">
 
     <!-- Header / Navbar -->
-    <header class="bg-[#EDE8DF] border-b border-[#DCD5C9] sticky top-0 z-50">
+   <header class="bg-[#050811] border-b border-slate-800 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-golf-ball-tee text-[#3B4D3C] text-2xl"></i>
-                <span class="text-xl font-bold tracking-wider text-[#2C2A29]" data-en="ONE GOLF DRIVE CLUB" data-th="วัน กอล์ฟ ไดร์ฟ คลับ">ONE GOLF DRIVE CLUB</span>
+                <i class="fa-solid fa-golf-ball-tee text-[#D4AF37] text-2xl"></i>
+                <span class="text-xl font-bold tracking-wider text-white" data-en="ONE GOLF DRIVE CLUB" data-th="วัน กอล์ฟ ไดร์ฟ คลับ">ONE GOLF DRIVE CLUB</span>
             </div>
             <div class="flex items-center space-x-6">
-                <nav class="hidden md:flex space-x-6 text-sm font-medium text-[#5C5753]">
-                    <a href="#features" class="hover:text-[#3B4D3C] transition" data-en="Features" data-th="จุดเด่น">Features</a>
-                    <a href="#bays" class="hover:text-[#3B4D3C] transition" data-en="Bay Rates" data-th="อัตราค่าบริการช่องตี">Bay Rates</a>
-                    <a href="#meetings" class="hover:text-[#3B4D3C] transition" data-en="Meeting Rooms" data-th="ห้องประชุม">Meeting Rooms</a>
-                    <a href="#booking" class="bg-[#3B4D3C] text-[#F7F5F0] px-4 py-2 rounded-lg font-bold hover:bg-[#2C3A2C] transition" data-en="Book Now" data-th="จองเลย">Book Now</a>
+                <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+                    <a href="#features" class="hover:text-[#D4AF37] transition" data-en="Features" data-th="จุดเด่น">Features</a>
+                    <a href="#bays" class="hover:text-[#D4AF37] transition" data-en="Bay Rates" data-th="อัตราค่าบริการช่องตี">Bay Rates</a>
+                    <a href="#meetings" class="hover:text-[#D4AF37] transition" data-en="Meeting Rooms" data-th="ห้องประชุม">Meeting Rooms</a>
+                    <a href="#booking" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition" data-en="Book Now" data-th="จองเลย">Book Now</a>
                 </nav>
-                <button onclick="toggleLanguage()" class="bg-[#DCD5C9] hover:bg-[#3B4D3C] hover:text-white text-[#2C2A29] px-3 py-1.5 rounded-lg text-xs font-bold transition">
+                <button onclick="toggleLanguage()" class="bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition border border-slate-700">
                     🌐 <span id="langLabel">TH / EN</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+   <!-- Hero Section -->
     <section class="relative bg-[url('https://images.unsplash.com/photo-1593111774616-a974fd3fa99f?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center py-24 md:py-36">
-        <div class="absolute inset-0 bg-[#2C2A29]/60"></div>
+        <div class="absolute inset-0 bg-[#0A0F1D]/80"></div>
         <div class="relative max-w-4xl mx-auto text-center px-4 text-white">
             <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
                 <span data-en="Experience 3-Storey Simulated Golf at" data-th="สัมผัสประสบการณ์กอล์ฟจำลอง 3 ชั้นที่">Experience 3-Storey Simulated Golf at</span> 
-                <span class="text-[#A3B899]">One Golf Drive</span>
+                <span class="gold-gradient">One Golf Drive</span>
             </h1>
-            <p class="text-lg md:text-xl text-[#E3DFD8] mb-8 max-w-2xl mx-auto" data-en="39 State-of-the-art hitting bays & VVIP rooms across 3 floors with precision ball tracking." data-th="ช่องตีและห้องVVIPล้ำสมัย 39 ช่องทั่วทั้ง 3 ชั้น พร้อมระบบติดตามลูกกอล์ฟความแม่นยำสูง">
+            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto" data-en="39 State-of-the-art hitting bays & VVIP rooms across 3 floors with precision ball tracking." data-th="ช่องตีและห้องVVIPล้ำสมัย 39 ช่องทั่วทั้ง 3 ชั้น พร้อมระบบติดตามลูกกอล์ฟความแม่นยำสูง">
                 39 State-of-the-art hitting bays & VVIP rooms across 3 floors with precision ball tracking.
             </p>
-            <a href="#booking" class="bg-[#3B4D3C] text-[#F7F5F0] font-bold px-8 py-4 rounded-xl text-lg hover:bg-[#2C3A2C] transition shadow-lg inline-block" data-en="Reserve Your Bay Now" data-th="จองช่องตีของคุณตอนนี้">Reserve Your Bay Now</a>
+            <a href="#booking" class="bg-[#D4AF37] text-[#0A0F1D] font-bold px-8 py-4 rounded-xl text-lg hover:bg-[#C59B27] transition shadow-lg inline-block shadow-[#D4AF37]/10" data-en="Reserve Your Bay Now" data-th="จองช่องตีของคุณตอนนี้">Reserve Your Bay Now</a>
         </div>
     </section>
 
     <!-- Bay Pricing & Facility Overview -->
-    <section id="bays" class="py-20 bg-[#F7F5F0]">
+    <section id="bays" class="py-20 bg-[#0A0F1D]">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-[#2C2A29]" data-en="Hitting Bay & VVIP Pricing" data-th="อัตราค่าบริการช่องตีและห้อง VVIP">Hitting Bay & VVIP Pricing</h2>
-                <p class="text-[#5C5753]" data-en="3 Floors | 13 Bays per floor | 39 Total Bays" data-th="3 ชั้น | 13 ช่องตีต่อชั้น | รวมทั้งหมด 39 ช่องตี">3 Floors | 13 Bays per floor | 39 Total Bays</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white" data-en="Hitting Bay & VVIP Pricing" data-th="อัตราค่าบริการช่องตีและห้อง VVIP">Hitting Bay & VVIP Pricing</h2>
+                <p class="text-slate-400" data-en="3 Floors | 13 Bays per floor | 39 Total Bays" data-th="3 ชั้น | 13 ช่องตีต่อชั้น | รวมทั้งหมด 39 ช่องตี">3 Floors | 13 Bays per floor | 39 Total Bays</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-[#EDE8DF] border border-[#DCD5C9] p-8 rounded-2xl shadow-sm">
-                    <div class="text-[#3B4D3C] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Floors 1 & 2 (Bays 01–26)" data-th="ชั้น 1 และ 2 (ช่อง 01–26)">Floors 1 & 2 (Bays 01–26)</div>
-                    <h3 class="text-2xl font-bold mb-4 text-[#2C2A29]" data-en="Standard Hitting Bays" data-th="ช่องตีมาตรฐาน">Standard Hitting Bays</h3>
-                    <ul class="space-y-3 text-[#5C5753] text-sm mb-6">
-                        <li class="flex justify-between border-b border-[#DCD5C9] pb-2"><span data-en="Mon – Thu" data-th="วันจันทร์ – พฤหัสบดี">Mon – Thu</span> <strong class="text-[#2C2A29]">฿600 / hour</strong></li>
-                        <li class="flex justify-between border-b border-[#DCD5C9] pb-2"><span data-en="Fri – Sun" data-th="วันศุกร์ – อาทิตย์">Fri – Sun</span> <strong class="text-[#2C2A29]">฿900 / hour</strong></li>
+                <div class="bg-[#111827] border border-slate-800 p-8 rounded-2xl shadow-md">
+                    <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Floors 1 & 2 (Bays 01–26)" data-th="ชั้น 1 และ 2 (ช่อง 01–26)">Floors 1 & 2 (Bays 01–26)</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-en="Standard Hitting Bays" data-th="ช่องตีมาตรฐาน">Standard Hitting Bays</h3>
+                    <ul class="space-y-3 text-slate-300 text-sm mb-6">
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Mon – Thu" data-th="วันจันทร์ – พฤหัสบดี">Mon – Thu</span> <strong class="text-white">฿600 / hour</strong></li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Fri – Sun" data-th="วันศุกร์ – อาทิตย์">Fri – Sun</span> <strong class="text-white">฿900 / hour</strong></li>
                     </ul>
                 </div>
 
-                <div class="bg-[#EDE8DF] border-2 border-[#3B4D3C] p-8 rounded-2xl shadow-md relative">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#3B4D3C] text-[#F7F5F0] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-en="Exclusive" data-th="เอ็กซ์คลูซีฟ">Exclusive</div>
-                    <div class="text-[#3B4D3C] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Floor 3 (VVIP Rooms 1–6)" data-th="ชั้น 3 (ห้อง VVIP 1–6)">Floor 3 (VVIP Rooms 1–6)</div>
-                    <h3 class="text-2xl font-bold mb-4 text-[#2C2A29]" data-en="VVIP Private Rooms" data-th="ห้อง VVIP ส่วนตัว">VVIP Private Rooms</h3>
-                    <ul class="space-y-3 text-[#5C5753] text-sm mb-6">
-                        <li class="flex justify-between border-b border-[#DCD5C9] pb-2"><span data-en="Mon – Thu" data-th="วันจันทร์ – พฤหัสบดี">Mon – Thu</span> <strong class="text-[#2C2A29]">฿1,700 / room / hr</strong></li>
-                        <li class="flex justify-between border-b border-[#DCD5C9] pb-2"><span data-en="Fri – Sun" data-th="วันศุกร์ – อาทิตย์">Fri – Sun</span> <strong class="text-[#2C2A29]">฿2,500 / room / hr</strong></li>
+                <div class="bg-[#111827] border-2 border-[#D4AF37] p-8 rounded-2xl shadow-lg relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#0A0F1D] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-en="Exclusive" data-th="เอ็กซ์คลูซีฟ">Exclusive</div>
+                    <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Floor 3 (VVIP Rooms 1–6)" data-th="ชั้น 3 (ห้อง VVIP 1–6)">Floor 3 (VVIP Rooms 1–6)</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-en="VVIP Private Rooms" data-th="ห้อง VVIP ส่วนตัว">VVIP Private Rooms</h3>
+                    <ul class="space-y-3 text-slate-300 text-sm mb-6">
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Mon – Thu" data-th="วันจันทร์ – พฤหัสบดี">Mon – Thu</span> <strong class="text-white">฿1,700 / room / hr</strong></li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span data-en="Fri – Sun" data-th="วันศุกร์ – อาทิตย์">Fri – Sun</span> <strong class="text-white">฿2,500 / room / hr</strong></li>
                     </ul>
                 </div>
             </div>
@@ -78,173 +85,181 @@
     </section>
 
     <!-- Meeting Room Packages Section -->
-    <section id="meetings" class="py-20 bg-[#EDE8DF] border-t border-[#DCD5C9]">
+    <section id="meetings" class="py-20 bg-[#050811] border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-[#2C2A29]" data-en="Meeting Room Packages" data-th="แพ็กเกจห้องประชุม">Meeting Room Packages</h2>
-                <p class="text-[#5C5753]" data-en="Host your corporate seminars, workshops, and business discussions with us." data-th="จัดสัมมนา เวิร์กช็อป และการประชุมธุรกิจของคุณกับเรา">Host your corporate seminars, workshops, and business discussions with us.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white" data-en="Meeting Room Packages" data-th="แพ็กเกจห้องประชุม">Meeting Room Packages</h2>
+                <p class="text-slate-400" data-en="Host your corporate seminars, workshops, and business discussions with us." data-th="จัดสัมมนา เวิร์กช็อป และการประชุมธุรกิจของคุณกับเรา">Host your corporate seminars, workshops, and business discussions with us.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Package 1 -->
-                <div class="bg-[#F7F5F0] border border-[#DCD5C9] rounded-2xl p-8 flex flex-col justify-between shadow-sm">
+                <div class="bg-[#111827] border border-slate-800 rounded-2xl p-8 flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="text-[#3B4D3C] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Half Day" data-th="ครึ่งวัน">Half Day</div>
-                        <h3 class="text-2xl font-bold mb-4 text-[#2C2A29]" data-en="Meeting Package" data-th="แพ็กเกจประชุม">Meeting Package</h3>
-                        <div class="text-3xl font-extrabold text-[#2C2A29] mb-6">฿950<span class="text-sm font-normal text-[#5C5753]" data-en="++ / person" data-th="++ / ท่าน">++ / person</span></div>
-                        <ul class="space-y-3 text-[#5C5753] text-sm mb-8">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="Half Day Room Access" data-th="ใช้ห้องประชุมครึ่งวัน">Half Day Room Access</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="1 Coffee Break" data-th="คอฟฟี่เบรก 1 เบรก">1 Coffee Break</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน">Standard AV Setup & Wi-Fi</span></li>
+                        <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Half Day" data-th="ครึ่งวัน">Half Day</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white" data-en="Meeting Package" data-th="แพ็กเกจประชุม">Meeting Package</h3>
+                        <div class="text-3xl font-extrabold text-white mb-6">฿950<span class="text-sm font-normal text-slate-400" data-en="++ / person" data-th="++ / ท่าน">++ / person</span></div>
+                        <ul class="space-y-3 text-slate-300 text-sm mb-8">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Half Day Room Access" data-th="ใช้ห้องประชุมครึ่งวัน">Half Day Room Access</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Coffee Break" data-th="คอฟฟี่เบรก 1 เบรก">1 Coffee Break</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน">Standard AV Setup & Wi-Fi</span></li>
                         </ul>
                     </div>
-                    <a href="#booking" class="w-full bg-[#DCD5C9] hover:bg-[#3B4D3C] hover:text-[#F7F5F0] text-[#2C2A29] font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้">Select Package</a>
+                    <a href="#booking" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้">Select Package</a>
                 </div>
 
                 <!-- Package 2 -->
-                <div class="bg-[#F7F5F0] border-2 border-[#3B4D3C] rounded-2xl p-8 flex flex-col justify-between relative shadow-md">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#3B4D3C] text-[#F7F5F0] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-en="Most Popular" data-th="ยอดนิยมที่สุด">Most Popular</div>
+                <div class="bg-[#111827] border-2 border-[#D4AF37] rounded-2xl p-8 flex flex-col justify-between relative shadow-lg">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#0A0F1D] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-en="Most Popular" data-th="ยอดนิยมที่สุด">Most Popular</div>
                     <div>
-                        <div class="text-[#3B4D3C] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Half Day with Lunch" data-th="ครึ่งวัน พร้อมอาหารกลางวัน">Half Day with Lunch</div>
-                        <h3 class="text-2xl font-bold mb-4 text-[#2C2A29]" data-en="Meeting Package" data-th="แพ็กเกจประชุม">Meeting Package</h3>
-                        <div class="text-3xl font-extrabold text-[#2C2A29] mb-6">฿1,350<span class="text-sm font-normal text-[#5C5753]" data-en="++ / person" data-th="++ / ท่าน">++ / person</span></div>
-                        <ul class="space-y-3 text-[#5C5753] text-sm mb-8">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="Half Day Room Access" data-th="ใช้ห้องประชุมครึ่งวัน">Half Day Room Access</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="1 Coffee Break" data-th="คอฟฟี่เบรก 1 เบรก">1 Coffee Break</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="1 Gourmet Lunch" data-th="อาหารกลางวัน 1 มื้อ">1 Gourmet Lunch</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน">Standard AV Setup & Wi-Fi</span></li>
+                        <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Half Day with Lunch" data-th="ครึ่งวัน พร้อมอาหารกลางวัน">Half Day with Lunch</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white" data-en="Meeting Package" data-th="แพ็กเกจประชุม">Meeting Package</h3>
+                        <div class="text-3xl font-extrabold text-white mb-6">฿1,350<span class="text-sm font-normal text-slate-400" data-en="++ / person" data-th="++ / ท่าน">++ / person</span></div>
+                        <ul class="space-y-3 text-slate-300 text-sm mb-8">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Half Day Room Access" data-th="ใช้ห้องประชุมครึ่งวัน">Half Day Room Access</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Coffee Break" data-th="คอฟฟี่เบรก 1 เบรก">1 Coffee Break</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Gourmet Lunch" data-th="อาหารกลางวัน 1 มื้อ">1 Gourmet Lunch</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน">Standard AV Setup & Wi-Fi</span></li>
                         </ul>
                     </div>
-                    <a href="#booking" class="w-full bg-[#3B4D3C] text-[#F7F5F0] hover:bg-[#2C3A2C] font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้">Select Package</a>
+                    <a href="#booking" class="w-full bg-[#D4AF37] text-[#0A0F1D] hover:bg-[#C59B27] font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้">Select Package</a>
                 </div>
 
                 <!-- Package 3 -->
-                <div class="bg-[#F7F5F0] border border-[#DCD5C9] rounded-2xl p-8 flex flex-col justify-between shadow-sm">
+                <div class="bg-[#111827] border border-slate-800 rounded-2xl p-8 flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="text-[#3B4D3C] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Full Day" data-th="เต็มวัน">Full Day</div>
-                        <h3 class="text-2xl font-bold mb-4 text-[#2C2A29]" data-en="Meeting Package" data-th="แพ็กเกจประชุม">Meeting Package</h3>
-                        <div class="text-3xl font-extrabold text-[#2C2A29] mb-6">฿1,550<span class="text-sm font-normal text-[#5C5753]" data-en="++ / person" data-th="++ / ท่าน">++ / person</span></div>
-                        <ul class="space-y-3 text-[#5C5753] text-sm mb-8">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="Full Day Room Access" data-th="ใช้ห้องประชุมเต็มวัน">Full Day Room Access</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="2 Coffee Breaks" data-th="คอฟฟี่เบรก 2 เบรก">2 Coffee Breaks</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="1 Gourmet Lunch" data-th="อาหารกลางวัน 1 มื้อ">1 Gourmet Lunch</span></li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#3B4D3C] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fiพื้นฐาน">Standard AV Setup & Wi-Fi</span></li>
+                        <div class="text-[#D4AF37] font-semibold text-sm tracking-wider uppercase mb-2" data-en="Full Day" data-th="เต็มวัน">Full Day</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white" data-en="Meeting Package" data-th="แพ็กเกจประชุม">Meeting Package</h3>
+                        <div class="text-3xl font-extrabold text-white mb-6">฿1,550<span class="text-sm font-normal text-slate-400" data-en="++ / person" data-th="++ / ท่าน">++ / person</span></div>
+                        <ul class="space-y-3 text-slate-300 text-sm mb-8">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Full Day Room Access" data-th="ใช้ห้องประชุมเต็มวัน">Full Day Room Access</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="2 Coffee Breaks" data-th="คอฟฟี่เบรก 2 เบรก">2 Coffee Breaks</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="1 Gourmet Lunch" data-th="อาหารกลางวัน 1 มื้อ">1 Gourmet Lunch</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Standard AV Setup & Wi-Fi" data-th="อุปกรณ์ AV และ Wi-Fi พื้นฐาน">Standard AV Setup & Wi-Fi</span></li>
                         </ul>
                     </div>
-                    <a href="#booking" class="w-full bg-[#DCD5C9] hover:bg-[#3B4D3C] hover:text-[#F7F5F0] text-[#2C2A29] font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้">Select Package</a>
+                    <a href="#booking" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-3 rounded-xl transition text-center" data-en="Select Package" data-th="เลือกแพ็กเกจนี้">Select Package</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Interactive Booking Form Section -->
-    <section id="booking" class="py-20 bg-[#F7F5F0] border-t border-[#DCD5C9]">
+    <section id="booking" class="py-20 bg-[#0A0F1D] border-t border-slate-800">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2 text-[#2C2A29]" data-en="Make a Reservation" data-th="จองบริการ">Make a Reservation</h2>
-                <p class="text-[#5C5753]" data-en="Select your date, time slot, duration, and choose your preferred hitting bay." data-th="เลือกวันที่ รอบเวลา ระยะเวลา และช่องตีที่คุณต้องการ">Select your date, time slot, duration, and choose your preferred hitting bay.</p>
+                <h2 class="text-3xl font-bold mb-2 text-white" data-en="Make a Reservation" data-th="จองบริการ">Make a Reservation</h2>
+                <p class="text-slate-400" data-en="Select your date, time slot, duration, and choose your preferred hitting bay." data-th="เลือกวันที่ รอบเวลา ระยะเวลา และช่องตีที่คุณต้องการ">Select your date, time slot, duration, and choose your preferred hitting bay.</p>
             </div>
 
-            <form id="reservationForm" class="bg-[#EDE8DF] border border-[#DCD5C9] p-8 rounded-2xl space-y-8 shadow-md">
+            <form id="reservationForm" class="bg-[#111827] border border-slate-800 p-8 rounded-2xl space-y-8 shadow-xl">
                 <!-- Step 1: Date, Time & Duration -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-[#2C2A29] mb-2" data-en="Booking Date" data-th="วันที่จอง">Booking Date</label>
-                        <input type="date" id="date" required onchange="updateAvailability()" class="w-full bg-[#F7F5F0] border border-[#DCD5C9] rounded-lg px-4 py-3 text-[#2C2A29] focus:outline-none focus:border-[#3B4D3C]">
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Booking Date" data-th="วันที่จอง">Booking Date</label>
+                        <input type="date" id="date" required onchange="updateAvailability()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-[#2C2A29] mb-2" data-en="Start Time" data-th="เวลาเริ่มต้น">Start Time</label>
-                        <select id="time" onchange="updateAvailability()" class="w-full bg-[#F7F5F0] border border-[#DCD5C9] rounded-lg px-4 py-3 text-[#2C2A29] focus:outline-none focus:border-[#3B4D3C]">
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Start Time" data-th="เวลาเริ่มต้น">Start Time</label>
+                        <select id="time" onchange="updateAvailability()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                            <option value="09:00">09:00 AM</option>
                             <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
                             <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
                             <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
                             <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
                             <option value="18:00">06:00 PM</option>
+                            <option value="19:00">07:00 PM</option>
                             <option value="20:00">08:00 PM</option>
+                            <option value="21:00">09:00 PM</option>
+                            <option value="22:00">10:00 PM</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-[#2C2A29] mb-2" data-en="Duration" data-th="ระยะเวลา">Duration</label>
-                        <select id="duration" onchange="calculatePrice()" class="w-full bg-[#F7F5F0] border border-[#DCD5C9] rounded-lg px-4 py-3 text-[#2C2A29] focus:outline-none focus:border-[#3B4D3C]">
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Duration" data-th="ระยะเวลา">Duration</label>
+                        <select id="duration" onchange="calculatePrice()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
                             <option value="1" data-en="1 Hour" data-th="1 ชั่วโมง">1 Hour</option>
                             <option value="2" data-en="2 Hours" data-th="2 ชั่วโมง">2 Hours</option>
                         </select>
                     </div>
                 </div>
 
-                <!-- Step 2: Bay Selector Grid -->
+               <!-- Step 2: Bay Selector Grid -->
                 <div>
-                    <label class="block text-sm font-medium text-[#2C2A29] mb-3">
+                    <label class="block text-sm font-medium text-slate-300 mb-3">
                         <span data-en="Select Hitting Bay / VVIP Room (Green = Available)" data-th="เลือกช่องตี / ห้อง VVIP (สีเขียว = ว่าง)">Select Hitting Bay / VVIP Room (Green = Available)</span>
                     </label>
                     
-                    <div class="space-y-4 bg-[#F7F5F0] p-6 rounded-xl border border-[#DCD5C9]">
+                    <div class="space-y-4 bg-[#0A0F1D] p-6 rounded-xl border border-slate-800">
                         <!-- Floor 3 VVIP -->
                         <div>
-                            <div class="text-xs font-bold text-[#3B4D3C] uppercase mb-2" data-en="Floor 3: VVIP Rooms" data-th="ชั้น 3: ห้อง VVIP">Floor 3: VVIP Rooms</div>
+                            <div class="text-xs font-bold text-[#D4AF37] uppercase mb-2" data-en="Floor 3: VVIP Rooms" data-th="ชั้น 3: ห้อง VVIP">Floor 3: VVIP Rooms</div>
                             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="floor3Grid"></div>
                         </div>
                         <!-- Floor 2 -->
                         <div>
-                            <div class="text-xs font-bold text-[#5C5753] uppercase mb-2" data-en="Floor 2 (Bays 14–26)" data-th="ชั้น 2 (ช่อง 14–26)">Floor 2 (Bays 14–26)</div>
+                            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 2 (Bays 14–26)" data-th="ชั้น 2 (ช่อง 14–26)">Floor 2 (Bays 14–26)</div>
                             <div class="grid grid-cols-7 sm:grid-cols-13 gap-1.5" id="floor2Grid"></div>
                         </div>
                         <!-- Floor 1 -->
                         <div>
-                            <div class="text-xs font-bold text-[#5C5753] uppercase mb-2" data-en="Floor 1 (Bays 01–13)" data-th="ชั้น 1 (ช่อง 01–13)">Floor 1 (Bays 01–13)</div>
+                            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 1 (Bays 01–13)" data-th="ชั้น 1 (ช่อง 01–13)">Floor 1 (Bays 01–13)</div>
                             <div class="grid grid-cols-7 sm:grid-cols-13 gap-1.5" id="floor1Grid"></div>
                         </div>
                     </div>
                     <input type="hidden" id="selectedBay" required>
-                    <p id="selectedBayDisplay" class="text-sm font-bold text-[#3B4D3C] mt-2" data-en="Selected: None" data-th="ช่องที่เลือก: ยังไม่ได้เลือก">Selected: None</p>
+                    <p id="selectedBayDisplay" class="text-sm font-bold text-[#D4AF37] mt-2" data-en="Selected: None" data-th="ช่องที่เลือก: ยังไม่ได้เลือก">Selected: None</p>
                 </div>
 
                 <!-- Step 3: Customer Details -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-[#2C2A29] mb-2" data-en="Full Name *" data-th="ชื่อ - นามสกุล *">Full Name *</label>
-                        <input type="text" id="name" required class="w-full bg-[#F7F5F0] border border-[#DCD5C9] rounded-lg px-4 py-3 text-[#2C2A29] focus:outline-none focus:border-[#3B4D3C]" placeholder="John Doe">
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Full Name *" data-th="ชื่อ - นามสกุล *">Full Name *</label>
+                        <input type="text" id="name" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]" placeholder="John Doe">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-[#2C2A29] mb-2" data-en="Email *" data-th="อีเมล *">Email *</label>
-                        <input type="email" id="email" required class="w-full bg-[#F7F5F0] border border-[#DCD5C9] rounded-lg px-4 py-3 text-[#2C2A29] focus:outline-none focus:border-[#3B4D3C]" placeholder="john@example.com">
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Email *" data-th="อีเมล *">Email *</label>
+                        <input type="email" id="email" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]" placeholder="john@example.com">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-[#2C2A29] mb-2" data-en="Phone Number (Optional)" data-th="เบอร์โทรศัพท์ (ไม่บังคับ)">Phone Number (Optional)</label>
-                        <input type="tel" id="phone" class="w-full bg-[#F7F5F0] border border-[#DCD5C9] rounded-lg px-4 py-3 text-[#2C2A29] focus:outline-none focus:border-[#3B4D3C]" placeholder="081-234-5678">
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Phone Number (Optional)" data-th="เบอร์โทรศัพท์ (ไม่บังคับ)">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]" placeholder="081-234-5678">
                     </div>
                 </div>
 
                 <!-- Price Summary & Confirm Button -->
-                <div class="bg-[#F7F5F0] p-6 rounded-xl border border-[#DCD5C9] flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="bg-[#0A0F1D] p-6 rounded-xl border border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div>
-                        <div class="text-sm text-[#5C5753]" data-en="Estimated Price Summary" data-th="สรุปราคาราคาประเมิน">Estimated Price Summary</div>
-                        <div id="priceDisplay" class="text-2xl font-extrabold text-[#2C2A29]">฿0</div>
+                        <div class="text-sm text-slate-400" data-en="Estimated Price Summary" data-th="สรุปราคาราคาประเมิน">Estimated Price Summary</div>
+                        <div id="priceDisplay" class="text-2xl font-extrabold text-[#D4AF37]">฿0</div>
                     </div>
                     <div class="flex space-x-3 w-full sm:w-auto">
-                        <button type="button" onclick="resetForm()" class="bg-[#DCD5C9] text-[#2C2A29] font-bold px-6 py-3 rounded-xl hover:bg-[#B8AF9F] transition" data-en="Cancel" data-th="ยกเลิก">Cancel</button>
-                        <button type="submit" class="bg-[#3B4D3C] text-[#F7F5F0] font-bold px-8 py-3 rounded-xl hover:bg-[#2C3A2C] transition shadow-md flex-1 sm:flex-none" data-en="Confirm Reservation" data-th="ยืนยันการจอง">Confirm Reservation</button>
+                        <button type="button" onclick="resetForm()" class="bg-slate-800 text-slate-300 font-bold px-6 py-3 rounded-xl hover:bg-slate-700 transition border border-slate-700" data-en="Cancel" data-th="ยกเลิก">Cancel</button>
+                        <button type="submit" class="bg-[#D4AF37] text-[#0A0F1D] font-bold px-8 py-3 rounded-xl hover:bg-[#C59B27] transition shadow-md flex-1 sm:flex-none" data-en="Confirm Reservation" data-th="ยืนยันการจอง">Confirm Reservation</button>
                     </div>
                 </div>
             </form>
 
             <!-- Success Confirmation & Reference Box (Hidden by default) -->
-            <div id="successMessage" class="hidden mt-8 bg-[#EDE8DF] border-2 border-[#3B4D3C] p-8 rounded-2xl shadow-lg">
+            <div id="successMessage" class="hidden mt-8 bg-[#111827] border-2 border-[#D4AF37] p-8 rounded-2xl shadow-xl">
                 <div class="flex items-center space-x-3 mb-4">
-                    <i class="fa-solid fa-circle-check text-3xl text-[#3B4D3C]"></i>
+                    <i class="fa-solid fa-circle-check text-3xl text-[#D4AF37]"></i>
                     <div>
-                        <h3 class="text-xl font-bold text-[#2C2A29]" data-en="Booking Confirmed Successfully!" data-th="ยืนยันการจองสำเร็จ!">Booking Confirmed Successfully!</h3>
-                        <p class="text-xs text-[#3B4D3C] font-semibold uppercase tracking-wider" data-en="Status: Confirmed & Reserved" data-th="สถานะ: ยืนยันและจองเรียบร้อยแล้ว">Status: Confirmed & Reserved</p>
+                        <h3 class="text-xl font-bold text-white" data-en="Booking Confirmed Successfully!" data-th="ยืนยันการจองสำเร็จ!">Booking Confirmed Successfully!</h3>
+                        <p class="text-xs text-[#D4AF37] font-semibold uppercase tracking-wider" data-en="Status: Confirmed & Reserved" data-th="สถานะ: ยืนยันและจองเรียบร้อยแล้ว">Status: Confirmed & Reserved</p>
                     </div>
                 </div>
-                <div id="bookingSummaryDetails" class="space-y-2 text-sm text-[#5C5753] border-t border-[#DCD5C9] pt-4"></div>
-                <button onclick="resetForm()" class="mt-6 bg-[#3B4D3C] text-[#F7F5F0] font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-[#2C3A2C] transition" data-en="Book Another Bay" data-th="จองช่องตีอื่นเพิ่ม">Book Another Bay</button>
+                <div id="bookingSummaryDetails" class="space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4"></div>
+                <button onclick="resetForm()" class="mt-6 bg-[#D4AF37] text-[#0A0F1D] font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-[#C59B27] transition" data-en="Book Another Bay" data-th="จองช่องตีอื่นเพิ่ม">Book Another Bay</button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#EDE8DF] border-t border-[#DCD5C9] py-8 text-center text-[#5C5753] text-sm">
+    <footer class="bg-[#050811] border-t border-slate-800 py-8 text-center text-slate-400 text-sm">
         <p>&copy; 2026 One Golf Drive Club. <span data-en="All rights reserved." data-th="สงวนลิขสิทธิ์ทั้งหมด">All rights reserved.</span></p>
     </footer>
 
@@ -269,7 +284,7 @@
             vvipRooms.forEach(room => {
                 const btn = document.createElement('button');
                 btn.type = 'button';
-                btn.className = 'bay-btn p-3 rounded-lg border text-left transition bg-emerald-100 border-emerald-400 text-emerald-900 hover:bg-emerald-200';
+                btn.className = 'bay-btn p-3 rounded-lg border text-left transition bg-emerald-950/60 border-emerald-600 text-emerald-300 hover:bg-emerald-900/60';
                 btn.innerHTML = `<div class="font-bold text-sm">${room.id}</div><div class="text-xs opacity-75">${room.bays}</div>`;
                 btn.onclick = () => selectBay(room.id, 'VVIP', btn);
                 f3.appendChild(btn);
@@ -293,16 +308,15 @@
         function createBayButton(container, bayName, type) {
             const btn = document.createElement('button');
             btn.type = 'button';
-            // Simulate random booked status for demo realism
             const isBooked = (parseInt(bayName.replace('Bay ', '')) % 7 === 0);
             
             if (isBooked) {
-                btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-slate-300 border-slate-400 text-slate-500 cursor-not-allowed';
+                btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-slate-800 border-slate-700 text-slate-600 cursor-not-allowed';
                 btn.disabled = true;
                 btn.title = 'Unavailable / Booked';
                 btn.innerText = bayName.replace('Bay ', '');
             } else {
-                btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-emerald-100 border-emerald-400 text-emerald-900 hover:bg-emerald-200';
+                btn.className = 'bay-btn p-2 rounded border text-center text-xs font-bold bg-emerald-950/60 border-emerald-600 text-emerald-300 hover:bg-emerald-900/60';
                 btn.innerText = bayName.replace('Bay ', '');
                 btn.onclick = () => selectBay(bayName, type, btn);
             }
@@ -312,16 +326,15 @@
         function selectBay(bayName, type, btnElement) {
             document.querySelectorAll('.bay-btn').forEach(b => {
                 if(!b.disabled) {
-                    b.classList.remove('ring-2', 'ring-[#3B4D3C]', 'bg-[#3B4D3C]', 'text-white');
-                    b.classList.add('bg-emerald-100', 'text-emerald-900');
+                    b.classList.remove('ring-2', 'ring-[#D4AF37]', 'bg-[#D4AF37]', 'text-[#0A0F1D]');
+                    b.classList.add('bg-emerald-950/60', 'text-emerald-300');
                 }
             });
-            btnElement.classList.remove('bg-emerald-100', 'text-emerald-900');
-            btnElement.classList.add('bg-[#3B4D3C]', 'text-white', 'ring-2', 'ring-[#3B4D3C]');
+            btnElement.classList.remove('bg-emerald-950/60', 'text-emerald-300');
+            btnElement.classList.add('bg-[#D4AF37]', 'text-[#0A0F1D]', 'ring-2', 'ring-[#D4AF37]', 'font-extrabold');
 
             selectedBayData = { name: bayName, type: type };
             document.getElementById('selectedBay').value = bayName;
-            document.getElementById('selectedBayDisplay.innerText') = `Selected: ${bayName} (${type})`;
             
             let displayTxt = currentLang === 'th' ? `เลือกแล้ว: ${bayName} (${type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})` : `Selected: ${bayName} (${type})`;
             document.getElementById('selectedBayDisplay').innerText = displayTxt;
@@ -333,7 +346,6 @@
             if (!dateString) return false;
             const date = new Date(dateString);
             const day = date.getDay();
-            // 0 = Sunday, 5 = Friday, 6 = Saturday
             return (day === 5 || day === 6 || day === 0);
         }
 
@@ -358,7 +370,6 @@
         }
 
         function updateAvailability() {
-            // Re-shuffle availability simulation based on date/time change
             initBays();
             selectedBayData = null;
             document.getElementById('selectedBay').value = '';
@@ -400,17 +411,17 @@
             const refCode = 'OGD-' + Math.floor(100000 + Math.random() * 900000);
 
             const summaryHTML = currentLang === 'th' ? `
-                <p><strong>รหัสอ้างอิงการจอง (Reference):</strong> <span class="text-[#3B4D3C] font-bold">${refCode}</span></p>
+                <p><strong>รหัสอ้างอิงการจอง (Reference):</strong> <span class="text-[#D4AF37] font-bold">${refCode}</span></p>
                 <p><strong>ผู้จอง:</strong> ${name} (${email})</p>
                 <p><strong>ช่องตี / ห้อง:</strong> ${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})</p>
                 <p><strong>วันที่ & เวลา:</strong> ${date} เวลา ${time} (${duration} ชั่วโมง)</p>
-                <p><strong>ราคารวมสุทธิ:</strong> <span class="text-[#2C2A29] font-bold text-lg">${price}</span></p>
+                <p><strong>ราคารวมสุทธิ:</strong> <span class="text-white font-bold text-lg">${price}</span></p>
             ` : `
-                <p><strong>Booking Reference:</strong> <span class="text-[#3B4D3C] font-bold">${refCode}</span></p>
+                <p><strong>Booking Reference:</strong> <span class="text-[#D4AF37] font-bold">${refCode}</span></p>
                 <p><strong>Customer:</strong> ${name} (${email})</p>
                 <p><strong>Selected Bay/Room:</strong> ${selectedBayData.name} (${selectedBayData.type})</p>
                 <p><strong>Date & Time:</strong> ${date} at ${time} (${duration} Hour${duration > 1 ? 's' : ''})</p>
-                <p><strong>Total Price:</strong> <span class="text-[#2C2A29] font-bold text-lg">${price}</span></p>
+                <p><strong>Total Price:</strong> <span class="text-white font-bold text-lg">${price}</span></p>
             `;
 
             document.getElementById('bookingSummaryDetails').innerHTML = summaryHTML;
