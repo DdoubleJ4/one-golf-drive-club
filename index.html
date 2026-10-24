@@ -34,11 +34,18 @@
                     <a href="#meetings" class="hover:text-[#D4AF37] transition">Meeting Rooms</a>
                     <a href="#booking" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition">Book Now</a>
                 </nav>
-                <button onclick="toggleLanguage()" class="bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition border border-slate-700">
-                    🌐 <span id="langLabel">EN / TH / CN</span>
-                </button>
-            </div>
-        </div>
+                <div class="relative inline-block text-left">
+    <button type="button" onclick="toggleLangDropdown()" class="bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition border border-slate-700 flex items-center space-x-1">
+        <span>🌐</span>
+        <span id="langLabel">EN</span>
+        <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
+    </button>
+    <div id="langDropdownMenu" class="hidden absolute right-0 mt-2 w-28 bg-[#111827] border border-slate-700 rounded-lg shadow-xl z-50 overflow-hidden">
+        <button type="button" onclick="setLanguage('en')" class="w-full text-left px-4 py-2 text-xs text-slate-200 hover:bg-[#D4AF37] hover:text-[#0A0F1D] transition">English</button>
+        <button type="button" onclick="setLanguage('th')" class="w-full text-left px-4 py-2 text-xs text-slate-200 hover:bg-[#D4AF37] hover:text-[#0A0F1D] transition">ไทย</button>
+        <button type="button" onclick="setLanguage('cn')" class="w-full text-left px-4 py-2 text-xs text-slate-200 hover:bg-[#D4AF37] hover:text-[#0A0F1D] transition">中文</button>
+    </div>
+</div>
     </header>
 
     <!-- Hero Section -->
@@ -426,12 +433,42 @@
             }
         }
 
-        function toggleLanguage() {
-            if (currentLang === 'en') currentLang = 'th';
-            else if (currentLang === 'th') currentLang = 'cn';
-            else currentLang = 'en';
+        function toggleLangDropdown() {
+            const menu = document.getElementById('langDropdownMenu');
+            menu.classList.toggle('hidden');
+        }
 
-            document.getElementById('langLabel').innerText = currentLang === 'en' ? 'EN / TH / CN' : currentLang === 'th' ? 'ไทย' : '中文';
+        window.addEventListener('click', function(e) {
+            const btn = document.querySelector('button[onclick="toggleLangDropdown()"]');
+            const menu = document.getElementById('langDropdownMenu');
+            if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const labels = { 'en': 'EN', 'th': 'ไทย', 'cn': '中文' };
+            document.getElementById('langLabel').innerText = labels[lang] || 'EN';
+            document.getElementById('langDropdownMenu').classList.add('hidden');
+            
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) el.innerText = text;
+            });
+
+            if (selectedBayData) {
+                let displayTxt = '';
+                if (currentLang === 'th') {
+                    displayTxt = bookingCategory === 'meeting' ? `เลือกแพ็กเกจแล้ว: ${selectedBayData.name}` : `เลือกแล้ว: ${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})`;
+                } else if (currentLang === 'cn') {
+                    displayTxt = bookingCategory === 'meeting' ? `已选择套餐：${selectedBayData.name}` : `已选择：${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? '3层 VVIP 包厢' : '标准击球区'})`;
+                } else {
+                    displayTxt = bookingCategory === 'meeting' ? `Selected Package: ${selectedBayData.name}` : `Selected: ${selectedBayData.name} (${selectedBayData.type})`;
+                }
+                document.getElementById('selectedBayDisplay').innerText = displayTxt;
+            }
+        }
             
             document.querySelectorAll('[data-en]').forEach(el => {
                 const text = el.getAttribute(`data-${currentLang}`);
