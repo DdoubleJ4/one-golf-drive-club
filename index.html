@@ -192,32 +192,45 @@ e="viewport" content="width=device-width, initial-scale=1.0">
                     </div>
                 </div>
 
-                <!-- Step 2: Bay Selector Grid -->
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-3">
-                        <span data-en="Select Hitting Bay / VVIP Room (Green = Available)" data-th="เลือกช่องตี / ห้อง VVIP (สีเขียว = ว่าง)" data-cn="选择击球区 / VVIP 包厢（绿色 = 可用）">Select Hitting Bay / VVIP Room (Green = Available)</span>
-                    </label>
-                    
-                    <div class="space-y-4 bg-[#0A0F1D] p-6 rounded-xl border border-slate-800">
-                        <!-- Floor 3 VVIP -->
-                        <div>
-                            <div class="text-xs font-bold text-[#D4AF37] uppercase mb-2" data-en="Floor 3: VVIP Rooms" data-th="ชั้น 3: ห้อง VVIP" data-cn="3层：VVIP 包厢">Floor 3: VVIP Rooms</div>
-                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="floor3Grid"></div>
-                        </div>
-                        <!-- Floor 2 -->
-                        <div>
-                            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 2 (Bays 14–26)" data-th="ชั้น 2 (ช่อง 14–26)" data-cn="2层 (14–26号击球区)">Floor 2 (Bays 14–26)</div>
-                            <div class="grid grid-cols-7 sm:grid-cols-13 gap-1.5" id="floor2Grid"></div>
-                        </div>
-                        <!-- Floor 1 -->
-                        <div>
-                            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 1 (Bays 01–13)" data-th="ชั้น 1 (ช่อง 01–13)" data-cn="1层 (01–13号击球区)">Floor 1 (Bays 01–13)</div>
-                            <div class="grid grid-cols-7 sm:grid-cols-13 gap-1.5" id="floor1Grid"></div>
-                        </div>
-                    </div>
-                    <input type="hidden" id="selectedBay" required>
-                    <p id="selectedBayDisplay" class="text-sm font-bold text-[#D4AF37] mt-2" data-en="Selected: None" data-th="ช่องที่เลือก: ยังไม่ได้เลือก" data-cn="已选择：无">Selected: None</p>
-                </div>
+                <!-- Step 2: Service & Room Selector -->
+<div>
+    <label class="block text-sm font-medium text-slate-300 mb-3" data-en="Select Service Type" data-th="เลือกประเภทบริการ" data-cn="选择服务类型">Select Service Type</label>
+    
+    <!-- Service Toggle Buttons -->
+    <div class="grid grid-cols-2 gap-3 mb-4">
+        <button type="button" id="tabBayBtn" onclick="switchBookingType('bay')" class="bg-[#D4AF37] text-[#0A0F1D] font-bold py-2.5 px-4 rounded-xl text-sm transition" data-en="Hitting Bays & VVIP" data-th="ช่องตีและห้อง VVIP" data-cn="击球区与 VVIP">Hitting Bays & VVIP</button>
+        <button type="button" id="tabMeetingBtn" onclick="switchBookingType('meeting')" class="bg-slate-800 text-slate-300 font-bold py-2.5 px-4 rounded-xl text-sm hover:bg-slate-700 transition" data-en="Meeting Rooms" data-th="ห้องประชุม" data-cn="会议室">Meeting Rooms</button>
+    </div>
+
+    <!-- Hitting Bay Container -->
+    <div id="baySelectionContainer" class="space-y-4 bg-[#0A0F1D] p-6 rounded-xl border border-slate-800">
+        <!-- Floor 3 VVIP -->
+        <div>
+            <div class="text-xs font-bold text-[#D4AF37] uppercase mb-2" data-en="Floor 3: VVIP Rooms" data-th="ชั้น 3: ห้อง VVIP" data-cn="3层：VVIP 包厢">Floor 3: VVIP Rooms</div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="floor3Grid"></div>
+        </div>
+        <!-- Floor 2 -->
+        <div>
+            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 2 (Bays 14–26)" data-th="ชั้น 2 (ช่อง 14–26)" data-cn="2层 (14–26号击球区)">Floor 2 (Bays 14–26)</div>
+            <div class="grid grid-cols-7 sm:grid-cols-13 gap-1.5" id="floor2Grid"></div>
+        </div>
+        <!-- Floor 1 -->
+        <div>
+            <div class="text-xs font-bold text-slate-400 uppercase mb-2" data-en="Floor 1 (Bays 01–13)" data-th="ชั้น 1 (ช่อง 01–13)" data-cn="1层 (01–13号击球区)">Floor 1 (Bays 01–13)</div>
+            <div class="grid grid-cols-7 sm:grid-cols-13 gap-1.5" id="floor1Grid"></div>
+        </div>
+    </div>
+
+    <!-- Meeting Room Container (Hidden by default) -->
+    <div id="meetingSelectionContainer" class="hidden space-y-3 bg-[#0A0F1D] p-6 rounded-xl border border-slate-800">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="meetingPackagesGrid">
+            <!-- Populated via script -->
+        </div>
+    </div>
+
+    <input type="hidden" id="selectedBay" required>
+    <p id="selectedBayDisplay" class="text-sm font-bold text-[#D4AF37] mt-2" data-en="Selected: None" data-th="ช่องที่เลือก: ยังไม่ได้เลือก" data-cn="已选择：无">Selected: None</p>
+</div>
 
                 <!-- Step 3: Customer Details -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -318,37 +331,188 @@ e="viewport" content="width=device-width, initial-scale=1.0">
             btn.onclick = () => selectBay(bayName, type, btn);
             container.appendChild(btn);
         }
+function selectBay(bayName, type, btnElement) {
+    document.querySelectorAll('.bay-btn').forEach(b => {
+        b.classList.remove('ring-2', 'ring-[#D4AF37]', 'bg-[#D4AF37]', 'text-[#0A0F1D]');
+        b.classList.add('bg-emerald-950/60', 'text-emerald-300');
+    });
+    btnElement.classList.remove('bg-emerald-950/60', 'text-emerald-300');
+    btnElement.classList.add('bg-[#D4AF37]', 'text-[#0A0F1D]', 'ring-2', 'ring-[#D4AF37]', 'font-extrabold');
+    
+    selectedBayData = { name: bayName, type: type };
+    document.getElementById('selectedBay').value = bayName;
+    let displayTxt = '';
+    if (currentLang === 'th') {
+        displayTxt = `เลือกแล้ว: ${bayName} (${type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})`;
+    } else if (currentLang === 'cn') {
+        displayTxt = `已选择：${bayName} (${type === 'VVIP' ? '3层 VVIP 包厢' : '标准击球区'})`;
+    } else {
+        displayTxt = `Selected: ${bayName} (${type})`;
+    }
+    document.getElementById('selectedBayDisplay').innerText = displayTxt;
+    calculatePrice();
+}
 
-        function selectBay(bayName, type, btnElement) {
-            document.querySelectorAll('.bay-btn').forEach(b => {
-                b.classList.remove('ring-2', 'ring-[#D4AF37]', 'bg-[#D4AF37]', 'text-[#0A0F1D]');
-                b.classList.add('bg-emerald-950/60', 'text-emerald-300');
-            });
-            btnElement.classList.remove('bg-emerald-950/60', 'text-emerald-300');
-            btnElement.classList.add('bg-[#D4AF37]', 'text-[#0A0F1D]', 'ring-2', 'ring-[#D4AF37]', 'font-extrabold');
+let bookingCategory = 'bay';
 
-            selectedBayData = { name: bayName, type: type };
-            document.getElementById('selectedBay').value = bayName;
-            
-            let displayTxt = '';
-            if (currentLang === 'th') {
-                displayTxt = `เลือกแล้ว: ${bayName} (${type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})`;
-            } else if (currentLang === 'cn') {
-                displayTxt = `已选择：${bayName} (${type === 'VVIP' ? '3层 VVIP 包厢' : '标准击球区'})`;
-            } else {
-                displayTxt = `Selected: ${bayName} (${type})`;
-            }
-            document.getElementById('selectedBayDisplay').innerText = displayTxt;
+function switchBookingType(type) {
+    bookingCategory = type;
+    selectedBayData = null;
+    document.getElementById('selectedBay').value = '';
+    
+    const bayContainer = document.getElementById('baySelectionContainer');
+    const meetingContainer = document.getElementById('meetingSelectionContainer');
+    const tabBay = document.getElementById('tabBayBtn');
+    const tabMeeting = document.getElementById('tabMeetingBtn');
 
-            calculatePrice();
+    if (type === 'bay') {
+        bayContainer.classList.remove('hidden');
+        meetingContainer.classList.add('hidden');
+        tabBay.className = "bg-[#D4AF37] text-[#0A0F1D] font-bold py-3 px-4 rounded-xl text-sm transition";
+        tabMeeting.className = "bg-slate-800 text-slate-300 font-bold py-3 px-4 rounded-xl text-sm hover:bg-slate-700 transition";
+        document.getElementById('selectedBayDisplay').innerText = "Selected: None";
+        initBays();
+    } else {
+        bayContainer.classList.add('hidden');
+        meetingContainer.classList.remove('hidden');
+        tabMeeting.className = "bg-[#D4AF37] text-[#0A0F1D] font-bold py-3 px-4 rounded-xl text-sm transition";
+        tabBay.className = "bg-slate-800 text-slate-300 font-bold py-3 px-4 rounded-xl text-sm hover:bg-slate-700 transition";
+        document.getElementById('selectedBayDisplay').innerText = "Selected Package: None";
+        initMeetings();
+    }
+    calculatePrice();
+}
+
+function initMeetings() {
+    const container = document.getElementById('meetingPackagesGrid');
+    container.innerHTML = '';
+    const packages = [
+        { name: 'Half Day Package', price: 950, desc: 'Half Day Access + 1 Coffee Break' },
+        { name: 'Half Day + Lunch', price: 1350, desc: 'Half Day Access + Coffee Break + Lunch' },
+        { name: 'Full Day Package', price: 1550, desc: 'Full Day Access + 2 Coffee Breaks + Lunch' }
+    ];
+
+    packages.forEach(pkg => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'meeting-btn p-4 rounded-xl border text-left transition bg-slate-900 border-slate-700 hover:border-[#D4AF37] cursor-pointer';
+        btn.innerHTML = `
+            <div class="font-bold text-white text-sm mb-1">${pkg.name}</div>
+            <div class="text-[#D4AF37] font-extrabold text-base mb-2">฿${pkg.price.toLocaleString()} ++</div>
+            <div class="text-xs text-slate-400">${pkg.desc}</div>
+        `;
+        btn.onclick = () => selectMeetingPackage(pkg.name, pkg.price, btn);
+        container.appendChild(btn);
+    });
+}
+
+function selectMeetingPackage(packageName, price, btnElement) {
+    document.querySelectorAll('.meeting-btn').forEach(b => {
+        b.classList.remove('ring-2', 'ring-[#D4AF37]', 'border-[#D4AF37]', 'bg-slate-800');
+        b.classList.add('bg-slate-900', 'border-slate-700');
+    });
+    btnElement.classList.remove('bg-slate-900', 'border-slate-700');
+    btnElement.classList.add('bg-slate-800', 'ring-2', 'ring-[#D4AF37]', 'border-[#D4AF37]');
+    
+    selectedBayData = { name: packageName, type: 'Meeting', fixedPrice: price };
+    document.getElementById('selectedBay').value = packageName;
+    document.getElementById('selectedBayDisplay').innerText = `Selected Package: ${packageName}`;
+    calculatePrice();
+}
+
+function isWeekend(dateString) {
+    if (!dateString) return false;
+    const date = new Date(dateString);
+    const day = date.getDay();
+    return (day === 5 || day === 6 || day === 0);
+}
+
+function calculatePrice() {
+    if (!selectedBayData) {
+        document.getElementById('priceDisplay').innerText = '฿0';
+        return;
+    }
+    if (bookingCategory === 'meeting') {
+        document.getElementById('priceDisplay').innerText = `฿${selectedBayData.fixedPrice.toLocaleString()} ++`;
+    } else {
+        const dateVal = document.getElementById('date').value;
+        const duration = parseInt(document.getElementById('duration').value) || 1;
+        const weekend = isWeekend(dateVal);
+        let rate = selectedBayData.type === 'VVIP' ? (weekend ? 2500 : 1700) : (weekend ? 900 : 600);
+        const total = rate * duration;
+        document.getElementById('priceDisplay').innerText = `฿${total.toLocaleString()}`;
+    }
+}
+
+function handleMainBooking(event) {
+    event.preventDefault();
+    if (!selectedBayData) {
+        alert("Please select a hitting bay or meeting room package first.");
+        return;
+    }
+    const name = document.getElementById('custName').value;
+    const email = document.getElementById('custEmail').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const duration = document.getElementById('duration').value;
+    const total = document.getElementById('priceDisplay').innerText;
+    const refCode = 'OGD-' + Math.floor(100000 + Math.random() * 900000);
+
+    const summaryHTML = `
+        <p><strong>Reference Code:</strong> <span class="text-[#D4AF37] font-mono">${refCode}</span></p>
+        <p><strong>Name:</strong> ${name} (${email})</p>
+        <p><strong>Selection:</strong> ${selectedBayData.name} (${bookingCategory === 'meeting' ? 'Meeting Package' : selectedBayData.type})</p>
+        <p><strong>Date & Time:</strong> ${date} at ${time} ${bookingCategory === 'bay' ? '(' + duration + ' Hours)' : ''}</p>
+        <p><strong>Total Price:</strong> <span class="text-[#D4AF37] font-bold">${total}</span></p>
+    `;
+
+    document.getElementById('bookingSummaryDetails').innerHTML = summaryHTML;
+    document.getElementById('reservationForm').classList.add('hidden');
+    document.getElementById('successMessage').classList.remove('hidden');
+}
+
+function resetForm() {
+    document.getElementById('reservationForm').reset();
+    document.getElementById('successMessage').classList.add('hidden');
+    document.getElementById('reservationForm').classList.remove('hidden');
+    selectedBayData = null;
+    document.getElementById('selectedBay').value = '';
+    document.getElementById('selectedBayDisplay').innerText = 'Selected: None';
+    document.getElementById('priceDisplay').innerText = '฿0';
+    initBays();
+}
+
+window.onload = () => {
+    initBays();
+};
+
+let currentLang = 'en';
+function toggleLanguage() {
+    if (currentLang === 'en') {
+        currentLang = 'th';
+        document.getElementById('langLabel').innerText = 'ไทย';
+    } else if (currentLang === 'th') {
+        currentLang = 'cn';
+        document.getElementById('langLabel').innerText = '中文';
+    } else {
+        currentLang = 'en';
+        document.getElementById('langLabel').innerText = 'EN';
+    }
+
+    const elements = document.querySelectorAll('[data-en]');
+    elements.forEach(el => {
+        if (currentLang === 'th' && el.getAttribute('data-th')) {
+            el.innerText = el.getAttribute('data-th');
+        } else if (currentLang === 'cn' && el.getAttribute('data-cn')) {
+            el.innerText = el.getAttribute('data-cn');
+        } else {
+            el.innerText = el.getAttribute('data-en');
         }
-
-        function isWeekend(dateString) {
-            if (!dateString) return false;
-            const date = new Date(dateString);
-            const day = date.getDay();
-            return (day === 5 || day === 6 || day === 0);
-        }
+    });
+}
+</script>
+</body>
+</html>
 
         function calculatePrice() {
             if (!selectedBayData) {
@@ -465,74 +629,100 @@ e="viewport" content="width=device-width, initial-scale=1.0">
     </div>
     </div>
 </section>
+    let bookingCategory = 'bay'; // 'bay' or 'meeting'
 
-<!-- ADD YOUR BOOKING FORM SECTION HERE -->
-<section id="booking" class="py-20 bg-[#050811] border-t border-slate-800">
-    <div class="max-w-xl mx-auto px-4">
-        <div class="bg-[#111827] border border-slate-800 p-8 rounded-2xl shadow-xl">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center" 
-                data-en="Make a Reservation" data-th="ทำการจอง" data-cn="进行预订">
-                Make a Reservation
-            </h2>
-            <form onsubmit="handleBooking(event)" class="space-y-4">
-                <div>
-                    <label class="block text-sm text-slate-300 mb-1" data-en="Full Name" data-th="ชื่อ-นามสกุล" data-cn="全名">Full Name</label>
-                    <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-[#D4AF37]">
-                </div>
-                <div>
-                    <label class="block text-sm text-slate-300 mb-1" data-en="Select Service" data-th="เลือกบริการ" data-cn="选择服务">Select Service</label>
-                    <select class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-[#D4AF37]">
-                        <option value="standard-bay">Standard Hitting Bay</option>
-                        <option value="vvip-room">VVIP Private Room</option>
-                        <option value="meeting-room">Meeting Room Package</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm text-slate-300 mb-1" data-en="Date & Time" data-th="วันที่และเวลา" data-cn="日期和时间">Date & Time</label>
-                    <input type="datetime-local" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-[#D4AF37]">
-                </div>
-                <button type="submit" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-3 rounded-xl hover:bg-[#C59B27] transition shadow-lg mt-4" 
-                        data-en="Confirm Booking" data-th="ยืนยันการจอง" data-cn="确认预订">
-                    Confirm Booking
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
+function switchBookingType(type) {
+    bookingCategory = type;
+    selectedBayData = null;
+    document.getElementById('selectedBay').value = '';
+    
+    const bayContainer = document.getElementById('baySelectionContainer');
+    const meetingContainer = document.getElementById('meetingSelectionContainer');
+    const tabBay = document.getElementById('tabBayBtn');
+    const tabMeeting = document.getElementById('tabMeetingBtn');
 
-<!-- ADD YOUR JAVASCRIPT FUNCTIONS HERE -->
-<script>
-    let currentLang = 'en';
-    function toggleLanguage() {
-        if (currentLang === 'en') {
-            currentLang = 'th';
-            document.getElementById('langLabel').innerText = 'ไทย';
-        } else if (currentLang === 'th') {
-            currentLang = 'cn';
-            document.getElementById('langLabel').innerText = '中文';
-        } else {
-            currentLang = 'en';
-            document.getElementById('langLabel').innerText = 'EN';
-        }
-
-        const elements = document.querySelectorAll('[data-en]');
-        elements.forEach(el => {
-            if (currentLang === 'th' && el.getAttribute('data-th')) {
-                el.innerText = el.getAttribute('data-th');
-            } else if (currentLang === 'cn' && el.getAttribute('data-cn')) {
-                el.innerText = el.getAttribute('data-cn');
-            } else {
-                el.innerText = el.getAttribute('data-en');
-            }
-        });
+    if (type === 'bay') {
+        bayContainer.classList.remove('hidden');
+        meetingContainer.classList.add('hidden');
+        tabBay.className = "bg-[#D4AF37] text-[#0A0F1D] font-bold py-2.5 px-4 rounded-xl text-sm transition";
+        tabMeeting.className = "bg-slate-800 text-slate-300 font-bold py-2.5 px-4 rounded-xl text-sm hover:bg-slate-700 transition";
+        document.getElementById('selectedBayDisplay').innerText = "Selected: None";
+        initBays();
+    } else {
+        bayContainer.classList.add('hidden');
+        meetingContainer.classList.remove('hidden');
+        tabMeeting.className = "bg-[#D4AF37] text-[#0A0F1D] font-bold py-2.5 px-4 rounded-xl text-sm transition";
+        tabBay.className = "bg-slate-800 text-slate-300 font-bold py-2.5 px-4 rounded-xl text-sm hover:bg-slate-700 transition";
+        document.getElementById('selectedBayDisplay').innerText = "Selected: None";
+        initMeetings();
     }
+    calculatePrice();
+}
 
+function initMeetings() {
+    const container = document.getElementById('meetingPackagesGrid');
+    container.innerHTML = '';
+    const packages = [
+        { name: 'Half Day Package', price: 950, desc: 'Half Day Access + 1 Coffee Break' },
+        { name: 'Half Day + Lunch', price: 1350, desc: 'Half Day Access + Coffee Break + Lunch' },
+        { name: 'Full Day Package', price: 1550, desc: 'Full Day Access + 2 Coffee Breaks + Lunch' }
+    ];
+
+    packages.forEach(pkg => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'meeting-btn p-4 rounded-xl border text-left transition bg-slate-900 border-slate-700 hover:border-[#D4AF37] cursor-pointer';
+        btn.innerHTML = `
+            <div class="font-bold text-white text-sm mb-1">${pkg.name}</div>
+            <div class="text-[#D4AF37] font-extrabold text-base mb-2">฿${pkg.price.toLocaleString()} ++</div>
+            <div class="text-xs text-slate-400">${pkg.desc}</div>
+        `;
+        btn.onclick = () => selectMeetingPackage(pkg.name, pkg.price, btn);
+        container.appendChild(btn);
+    });
+}
+
+function selectMeetingPackage(packageName, price, btnElement) {
+    document.querySelectorAll('.meeting-btn').forEach(b => {
+        b.classList.remove('ring-2', 'ring-[#D4AF37]', 'border-[#D4AF37]', 'bg-slate-800');
+        b.classList.add('bg-slate-900', 'border-slate-700');
+    });
+    btnElement.classList.remove('bg-slate-900', 'border-slate-700');
+    btnElement.classList.add('bg-slate-800', 'ring-2', 'ring-[#D4AF37]', 'border-[#D4AF37]');
+    
+    selectedBayData = { name: packageName, type: 'Meeting', fixedPrice: price };
+    document.getElementById('selectedBay').value = packageName;
+    document.getElementById('selectedBayDisplay').innerText = `Selected Package: ${packageName}`;
+    calculatePrice();
+}
+
+// Update calculatePrice() to support meeting packages
+function calculatePrice() {
+    if (!selectedBayData) {
+        document.getElementById('priceDisplay').innerText = '฿0';
+        return;
+    }
+    if (bookingCategory === 'meeting') {
+        const total = selectedBayData.fixedPrice;
+        document.getElementById('priceDisplay').innerText = `฿${total.toLocaleString()} ++`;
+    } else {
+        const dateVal = document.getElementById('date').value;
+        const duration = parseInt(document.getElementById('duration').value) || 1;
+        const weekend = isWeekend(dateVal);
+        let rate = 0;
+        if (selectedBayData.type === 'VVIP') {
+            rate = weekend ? 2500 : 1700;
+        } else {
+            rate = weekend ? 900 : 600;
+        }
+        const total = rate * duration;
+        document.getElementById('priceDisplay').innerText = `฿${total.toLocaleString()}`;
+    }
+}
     function handleBooking(event) {
         event.preventDefault();
         alert("Thank you! Your reservation request has been received.");
     }
 </script>
-</body>
-</html>
 </body>
 </html>
