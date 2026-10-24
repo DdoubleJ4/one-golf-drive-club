@@ -31,11 +31,11 @@ e="viewport" content="width=device-width, initial-scale=1.0">
             </div>
             <div class="flex items-center space-x-4 md:space-x-6">
                 <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
-                    <a href="#features" class="hover:text-[#D4AF37] transition" data-en="Features" data-th="จุดเด่น" data-cn="特点">Features</a>
-                    <a href="#bays" class="hover:text-[#D4AF37] transition" data-en="Bay Rates" data-th="อัตราค่าบริการช่องตี" data-cn="击球区价格">Bay Rates</a>
-                    <a href="#meetings" class="hover:text-[#D4AF37] transition" data-en="Meeting Rooms" data-th="ห้องประชุม" data-cn="会议室">Meeting Rooms</a>
-                    <a href="#booking" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition" data-en="Book Now" data-th="จองเลย" data-cn="立即预订">Book Now</a>
-                </nav>
+    <a href="#features" class="hover:text-[#D4AF37] transition">Features</a>
+    <a href="#bays" class="hover:text-[#D4AF37] transition">Bay Rates</a>
+    <a href="#meetings" class="hover:text-[#D4AF37] transition">Meeting Rooms</a>
+    <a href="#booking" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition">Book Now</a>
+</nav>
                 <button onclick="toggleLanguage()" class="bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition border border-slate-700">
                     🌐 <span id="langLabel">EN / TH / CN</span>
                 </button>
@@ -462,5 +462,77 @@ e="viewport" content="width=device-width, initial-scale=1.0">
             calculatePrice();
         }
     </script>
+    </div>
+    </div>
+</section>
+
+<!-- ADD YOUR BOOKING FORM SECTION HERE -->
+<section id="booking" class="py-20 bg-[#050811] border-t border-slate-800">
+    <div class="max-w-xl mx-auto px-4">
+        <div class="bg-[#111827] border border-slate-800 p-8 rounded-2xl shadow-xl">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center" 
+                data-en="Make a Reservation" data-th="ทำการจอง" data-cn="进行预订">
+                Make a Reservation
+            </h2>
+            <form onsubmit="handleBooking(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm text-slate-300 mb-1" data-en="Full Name" data-th="ชื่อ-นามสกุล" data-cn="全名">Full Name</label>
+                    <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-300 mb-1" data-en="Select Service" data-th="เลือกบริการ" data-cn="选择服务">Select Service</label>
+                    <select class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                        <option value="standard-bay">Standard Hitting Bay</option>
+                        <option value="vvip-room">VVIP Private Room</option>
+                        <option value="meeting-room">Meeting Room Package</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-300 mb-1" data-en="Date & Time" data-th="วันที่และเวลา" data-cn="日期和时间">Date & Time</label>
+                    <input type="datetime-local" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                </div>
+                <button type="submit" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-3 rounded-xl hover:bg-[#C59B27] transition shadow-lg mt-4" 
+                        data-en="Confirm Booking" data-th="ยืนยันการจอง" data-cn="确认预订">
+                    Confirm Booking
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ADD YOUR JAVASCRIPT FUNCTIONS HERE -->
+<script>
+    let currentLang = 'en';
+    function toggleLanguage() {
+        if (currentLang === 'en') {
+            currentLang = 'th';
+            document.getElementById('langLabel').innerText = 'ไทย';
+        } else if (currentLang === 'th') {
+            currentLang = 'cn';
+            document.getElementById('langLabel').innerText = '中文';
+        } else {
+            currentLang = 'en';
+            document.getElementById('langLabel').innerText = 'EN';
+        }
+
+        const elements = document.querySelectorAll('[data-en]');
+        elements.forEach(el => {
+            if (currentLang === 'th' && el.getAttribute('data-th')) {
+                el.innerText = el.getAttribute('data-th');
+            } else if (currentLang === 'cn' && el.getAttribute('data-cn')) {
+                el.innerText = el.getAttribute('data-cn');
+            } else {
+                el.innerText = el.getAttribute('data-en');
+            }
+        });
+    }
+
+    function handleBooking(event) {
+        event.preventDefault();
+        alert("Thank you! Your reservation request has been received.");
+    }
+</script>
+</body>
+</html>
 </body>
 </html>
