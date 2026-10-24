@@ -445,17 +445,41 @@ e="viewport" content="width=device-width, initial-scale=1.0">
         }
     }
 
-    function toggleLanguage() {
-        if (currentLang === 'en') currentLang = 'th';
-        else if (currentLang === 'th') currentLang = 'cn';
-        else currentLang = 'en';
+    function toggleLangDropdown() {
+        const menu = document.getElementById('langDropdownMenu');
+        menu.classList.toggle('hidden');
+    }
 
-        document.getElementById('langLabel').innerText = currentLang === 'en' ? 'EN / TH / CN' : currentLang === 'th' ? 'ไทย' : '中文';
-        
+    window.addEventListener('click', function(e) {
+        const btn = document.querySelector('button[onclick="toggleLangDropdown()"]');
+        const menu = document.getElementById('langDropdownMenu');
+        if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+    });
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        const labels = { 'en': 'EN', 'th': 'ไทย', 'cn': '中文' };
+        document.getElementById('langLabel').innerText = labels[lang] || 'EN';
+        document.getElementById('langDropdownMenu').classList.add('hidden');
+
         document.querySelectorAll('[data-en]').forEach(el => {
             const text = el.getAttribute(`data-${currentLang}`);
             if (text) el.innerText = text;
         });
+
+        if (selectedBayData) {
+            let displayTxt = '';
+            if (currentLang === 'th') {
+                displayTxt = bookingCategory === 'meeting' ? `เลือกแพ็กเกจแล้ว: ${selectedBayData.name}` : `เลือกแล้ว: ${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})`;
+            } else if (currentLang === 'cn') {
+                displayTxt = bookingCategory === 'meeting' ? `已选择套餐：${selectedBayData.name}` : `已选择：${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? '3层 VVIP 包厢' : '标准击球区'})`;
+            } else {
+                displayTxt = bookingCategory === 'meeting' ? `Selected Package: ${selectedBayData.name}` : `Selected: ${selectedBayData.name} (${selectedBayData.type})`;
+            }
+            document.getElementById('selectedBayDisplay').innerText = displayTxt;
+        }
     }
 
     const today = new Date().toISOString().split('T')[0];
@@ -493,7 +517,8 @@ e="viewport" content="width=device-width, initial-scale=1.0">
         if (bookingCategory === 'bay') initBays();
         window.location.hash = 'successMessage';
     });
-function resetForm() {
+
+    function resetForm() {
         document.getElementById('reservationForm').reset();
         document.getElementById('date').value = today;
         document.getElementById('successMessage').classList.add('hidden');
@@ -501,121 +526,6 @@ function resetForm() {
         if (bookingCategory === 'bay') initBays();
         calculatePrice();
     }
-
-    let bookingCategory = 'bay'; // 'bay' or 'meeting'
-
-    function switchBookingType(type) {
-        bookingCategory = type;
-        selectedBayData = null;
-        document.getElementById('selectedBay').value = '';
-        
-        const bayContainer = document.getElementById('baySelectionContainer');
-        const meetingContainer = document.getElementById('meetingSelectionContainer');
-        const tabBay = document.getElementById('tabBayBtn');
-        const tabMeeting = document.getElementById('tabMeetingBtn');
-        const durationWrapper = document.getElementById('durationWrapper');
-
-        if (type === 'bay') {
-            bayContainer.classList.remove('hidden');
-            meetingContainer.classList.add('hidden');
-            durationWrapper.style.display = 'block';
-            tabBay.className = "bg-[#D4AF37] text-[#0A0F1D] font-bold py-2.5 px-4 rounded-xl text-sm transition";
-            tabMeeting.className = "bg-slate-800 text-slate-300 font-bold py-2.5 px-4 rounded-xl text-sm hover:bg-slate-700 transition";
-            document.getElementById('selectedBayDisplay').innerText = "Selected: None";
-            initBays();
-        } else {
-            bayContainer.classList.add('hidden');
-            meetingContainer.classList.remove('hidden');
-            durationWrapper.style.display = 'none';
-            tabMeeting.className = "bg-[#D4AF37] text-[#0A0F1D] font-bold py-2.5 px-4 rounded-xl text-sm transition";
-            tabBay.className = "bg-slate-800 text-slate-300 font-bold py-2.5 px-4 rounded-xl text-sm hover:bg-slate-700 transition";
-            document.getElementById('selectedBayDisplay').innerText = "Selected Package: None";
-            initMeetings();
-        }
-        calculatePrice();
-    }
-
-    function initMeetings() {
-        const container = document.getElementById('meetingPackagesGrid');
-        container.innerHTML = '';
-        const packages = [
-            { name: 'Half Day Package', price: 950, desc: 'Half Day Access + 1 Coffee Break' },
-            { name: 'Half Day + Lunch', price: 1350, desc: 'Half Day Access + Coffee Break + Lunch' },
-            { name: 'Full Day Package', price: 1550, desc: 'Full Day Access + 2 Coffee Breaks + Lunch' }
-        ];
-
-        packages.forEach(pkg => {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'meeting-btn p-4 rounded-xl border text-left transition bg-slate-900 border-slate-700 hover:border-[#D4AF37] cursor-pointer';
-            btn.innerHTML = `
-                <div class="font-bold text-white text-sm mb-1">${pkg.name}</div>
-                <div class="text-[#D4AF37] font-extrabold text-base mb-2">฿${pkg.price.toLocaleString()} ++</div>
-                <div class="text-xs text-slate-400">${pkg.desc}</div>
-            `;
-            btn.onclick = () => selectMeetingPackage(pkg.name, pkg.price, btn);
-            container.appendChild(btn);
-        });
-    }
-
-    function selectMeetingPackage(packageName, price, btnElement) {
-        document.querySelectorAll('.meeting-btn').forEach(b => {
-            b.classList.remove('ring-2', 'ring-[#D4AF37]', 'border-[#D4AF37]', 'bg-slate-800');
-            b.classList.add('bg-slate-900', 'border-slate-700');
-        });
-        btnElement.classList.remove('bg-slate-900', 'border-slate-700');
-        btnElement.classList.add('bg-slate-800', 'ring-2', 'ring-[#D4AF37]', 'border-[#D4AF37]');
-        
-        selectedBayData = { name: packageName, type: 'Meeting', fixedPrice: price };
-        document.getElementById('selectedBay').value = packageName;
-        document.getElementById('selectedBayDisplay').innerText = `Selected Package: ${packageName}`;
-        calculatePrice();
-    }
-        // เปิด-ปิด เมนูดรอปดาวน์เลือกภาษา
-function toggleLangDropdown() {
-    const menu = document.getElementById('langDropdownMenu');
-    menu.classList.toggle('hidden');
-}
-
-// ปิดเมนูดรอปดาวน์เมื่อคลิกพื้นที่อื่นบนหน้าจอ
-window.addEventListener('click', function(e) {
-    const btn = document.querySelector('button[onclick="toggleLangDropdown()"]');
-    const menu = document.getElementById('langDropdownMenu');
-    if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.add('hidden');
-    }
-});
-
-// ตั้งค่าภาษาและเปลี่ยนข้อความบนหน้าเว็บตามที่เลือก
-function setLanguage(lang) {
-    currentLang = lang;
-    
-    // อัปเดตป้ายแสดงภาษาปัจจุบัน
-    const labels = { 'en': 'EN', 'th': 'ไทย', 'cn': '中文' };
-    document.getElementById('langLabel').innerText = labels[lang] || 'EN';
-    
-    // ซ่อนดรอปดาวน์หลังเลือก
-    document.getElementById('langDropdownMenu').classList.add('hidden');
-
-    // เปลี่ยนข้อความบนเว็บที่รองรับ data-en, data-th, data-cn
-    document.querySelectorAll('[data-en]').forEach(el => {
-        const text = el.getAttribute(`data-${currentLang}`);
-        if (text) el.innerText = text;
-    });
-
-    // อัปเดตข้อความช่องที่เลือก (ถ้ามี)
-    if (selectedBayData) {
-        let displayTxt = '';
-        if (currentLang === 'th') {
-            displayTxt = bookingCategory === 'meeting' ? `เลือกแพ็กเกจแล้ว: ${selectedBayData.name}` : `เลือกแล้ว: ${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? 'ห้อง VVIP ชั้น 3' : 'ช่องตีมาตรฐาน'})`;
-        } else if (currentLang === 'cn') {
-            displayTxt = bookingCategory === 'meeting' ? `已选择套餐：${selectedBayData.name}` : `已选择：${selectedBayData.name} (${selectedBayData.type === 'VVIP' ? '3层 VVIP 包厢' : '标准击球区'})`;
-        } else {
-            displayTxt = bookingCategory === 'meeting' ? `Selected Package: ${selectedBayData.name}` : `Selected: ${selectedBayData.name} (${selectedBayData.type})`;
-        }
-        document.getElementById('selectedBayDisplay').innerText = displayTxt;
-    }
-}
 </script>
 </body>
 </html>
