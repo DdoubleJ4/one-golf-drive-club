@@ -238,7 +238,7 @@
                     <div class="border-t border-slate-800 pt-4">
                         <div class="flex justify-between items-center mb-3">
                             <h5 class="text-xs font-bold text-white flex items-center"><i class="fa-solid fa-ticket text-[#D4AF37] mr-1.5"></i> <span data-en="Your Vouchers" data-th="Vouchers ของคุณ" data-cn="您的优惠券">Your Vouchers</span></h5>
-                            <span class="text-[9px] bg-amber-500/20 text-[#D4AF37] px-2 py-0.5 rounded font-mono font-bold" id="voucherCountBadge">4 Vouchers</span>
+                            <span class="text-[9px] bg-amber-500/20 text-[#D4AF37] px-2 py-0.5 rounded font-mono font-bold" id="voucherCountBadge">2 Vouchers</span>
                         </div>
                         <div class="grid grid-cols-1 gap-2.5 max-h-56 overflow-y-auto pr-1" id="memberVouchersGrid">
                             <!-- Injected by JS -->
@@ -420,23 +420,17 @@
 
             if (tier === 'Classic') {
                 vouchers = [
-                    { title: 'Free Standard Bay 1 hr', desc: 'Valid during Off-Peak (Mon-Thu 09:00-17:00)', code: 'V-BAY-01', tag: 'Bay' },
-                    { title: 'F&B Discount 5%', desc: 'Show digital pass for POS discount', code: 'V-FNB-POS', tag: 'POS' },
-                    { title: 'Golf Shop Discount 5%', desc: 'Show digital pass for POS discount', code: 'V-SHOP-POS', tag: 'POS' }
+                    { title: 'Free Standard Bay 1 hr', desc: 'Valid during Off-Peak (Mon-Thu 09:00-17:00)', code: 'V-BAY-01', tag: 'Bay' }
                 ];
             } else if (tier === 'Prime') {
                 vouchers = [
                     { title: 'Free Standard Bay 1 hr (3 Vouchers)', desc: 'Valid during Off-Peak (Mon-Thu 09:00-17:00)', code: 'V-BAY-03', tag: 'Bay' },
-                    { title: 'Complimentary Birthday Drink', desc: '1 Free Signature Drink during birthday month', code: 'V-BDAY', tag: 'Birthday' },
-                    { title: 'F&B Discount 5%', desc: 'Show digital pass for POS discount', code: 'V-FNB-POS', tag: 'POS' },
-                    { title: 'Golf Shop Discount 10%', desc: 'Show digital pass for POS discount', code: 'V-SHOP-POS', tag: 'POS' }
+                    { title: 'Complimentary Birthday Drink', desc: '1 Free Signature Drink during birthday month', code: 'V-BDAY', tag: 'Birthday' }
                 ];
             } else {
                 vouchers = [
                     { title: 'Free Standard Bay 1 hr (6 Vouchers)', desc: 'Valid during Off-Peak (Mon-Thu 09:00-17:00)', code: 'V-BAY-06', tag: 'Bay' },
                     { title: 'Monthly Free Signature Drink', desc: '1 Free Signature Drink per month (12/yr)', code: 'V-ELITE', tag: 'Monthly' },
-                    { title: 'F&B Discount 10%', desc: 'Show digital pass for POS discount', code: 'V-FNB-POS', tag: 'POS' },
-                    { title: 'Golf Shop Discount 10%', desc: 'Show digital pass for POS discount', code: 'V-SHOP-POS', tag: 'POS' },
                     { title: 'VVIP Room Upgrade Discount', desc: 'Exclusive discount to upgrade to Floor 3 VVIP room', code: 'V-VVIP', tag: 'Exclusive' }
                 ];
             }
