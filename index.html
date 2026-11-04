@@ -8,15 +8,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .gold-gradient {
-            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);n type="button" onclick="toggleLangDropdown()" class="bg-slate
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .gold-glow {
-            filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.5));
-        }
-    </style>
+    .gold-gradient {
+        background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .gold-glow {
+        filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.5));
+    }
+</style>
 </head>
 <body class="bg-[#0A0F1D] text-slate-100 font-sans antialiased">
 
@@ -350,7 +350,7 @@
         if (type === 'bay') {
             bayContainer.classList.remove('hidden');
             meetingContainer.classList.add('hidden');
-            durationWrapper.style.display = 'block';
+            durationWrapper..display = 'block';
             tabBay.className = "bg-[#D4AF37] text-[#0A0F1D] font-bold py-2.5 px-4 rounded-xl text-sm transition";
             tabMeeting.className = "bg-slate-800 text-slate-300 font-bold py-2.5 px-4 rounded-xl text-sm hover:bg-slate-700 transition";
             document.getElementById('selectedBayDisplay').innerText = "Selected: None";
@@ -358,7 +358,7 @@
         } else {
             bayContainer.classList.add('hidden');
             meetingContainer.classList.remove('hidden');
-            durationWrapper.style.display = 'none';
+            durationWrapper..display = 'none';
             tabMeeting.className = "bg-[#D4AF37] text-[#0A0F1D] font-bold py-2.5 px-4 rounded-xl text-sm transition";
             tabBay.className = "bg-slate-800 text-slate-300 font-bold py-2.5 px-4 rounded-xl text-sm hover:bg-slate-700 transition";
             document.getElementById('selectedBayDisplay').innerText = "Selected Package: None";
