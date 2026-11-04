@@ -1,25 +1,230 @@
-<!-- ... existing code ... -->
-            <div class="flex items-center space-x-4 md:space-x-6">
-                <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
-                    <a href="index.html" class="hover:text-[#D4AF37] transition"><i class="fa-solid fa-arrow-left mr-1"></i> Back to Reservations</a>
-                    <a href="#tiers" class="hover:text-[#D4AF37] transition">Membership Tiers</a>
-                    <a href="#vouchers" class="hover:text-[#D4AF37] transition">My Vouchers</a>
-                    <a href="#simulator" class="hover:text-[#D4AF37] transition">Savings Simulator</a>
-                    <a href="#register" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition">Apply Now</a>
-                </nav>
-                <div class="relative inline-block text-left">
-<!-- ... existing code ... -->
-                    <p class="text-xs text-[#D4AF37] font-semibold uppercase tracking-wider mb-4">Active Digital Membership Pass</p>
-                    
-                    <!-- My Vouchers & E-Coupons Section -->
-                    <div id="vouchers" class="border-t border-slate-800 pt-6 mt-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <h4 class="text-sm font-bold text-white flex items-center"><i class="fa-solid fa-[#D4AF37] fa-ticket mr-2 text-[#D4AF37]"></i> สิทธิประโยชน์ & Vouchers ของคุณ (Member E-Vouchers)</h4>
-                            <span class="text-[10px] bg-amber-500/20 text-[#D4AF37] px-2 py-0.5 rounded font-mono font-bold" id="voucherCountBadge">4 Vouchers Available</span>
-                        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Golf Drive Club | Annual Membership Program</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gold-gradient {
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-glow {
+            filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.5));
+        }
+    </style>
+</head>
+<body class="bg-[#0A0F1D] text-slate-100 font-sans antialiased">
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="memberVouchersGrid">
-                            <!-- Dynamic Vouchers injected via JS based on selected Tier -->
+    <!-- Header / Navbar -->
+    <header class="bg-[#050811] border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="Logo2.jpg" alt="Logo" class="w-12 h-12 rounded-full border-2 border-[#D4AF37] object-cover gold-glow shadow-xl">
+                <span class="text-xl font-bold tracking-wider text-white">ONE GOLF DRIVE CLUB</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+                <a href="index.html" class="hover:text-[#D4AF37] transition flex items-center gap-1"><i class="fa-solid fa-arrow-left mr-1"></i> Back to Reservations</a>
+                <a href="#tiers" class="hover:text-[#D4AF37] transition">Membership Tiers</a>
+                <a href="#simulator" class="hover:text-[#D4AF37] transition">Savings Simulator</a>
+                <a href="#register" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition">Apply Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-[url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center py-20">
+        <div class="absolute inset-0 bg-[#0A0F1D]/85"></div>
+        <div class="relative max-w-4xl mx-auto text-center px-4 text-white">
+            <span class="text-[#D4AF37] font-semibold text-sm tracking-widest uppercase mb-3 block">Annual Membership Program</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
+                Elevate Your Golf Experience at <span class="gold-gradient">One Golf Drive Club</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+                สิทธิประโยชน์เหนือระดับ ชั่วโมงเล่นกอล์ฟฟรีช่วง Off-Peak, ส่วนลด F&B และ Golf Shop ผ่านระบบ POS หน้างาน พร้อมระบบสะสมคะแนนพิเศษ
+            </p>
+            <a href="#register" class="bg-[#D4AF37] text-[#0A0F1D] font-bold px-8 py-3.5 rounded-xl text-base hover:bg-[#C59B27] transition shadow-lg inline-block">สมัครสมาชิกรายปี</a>
+        </div>
+    </section>
+
+    <!-- Membership Tiers Section -->
+    <section id="tiers" class="py-16 bg-[#0A0F1D]">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2 text-white">เลือกระดับสมาชิกที่เหมาะกับคุณ</h2>
+                <p class="text-slate-400 text-sm">3 ระดับสมาชิกรายปี (Classic, Prime, Elite) พร้อมสิทธิประโยชน์จัดเต็ม</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Classic -->
+                <div class="bg-[#111827] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="text-[#D4AF37] font-semibold text-xs tracking-wider uppercase mb-1">Entry Level</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Classic</h3>
+                        <div class="text-3xl font-extrabold text-white mb-4">฿1,490 <span class="text-xs font-normal text-slate-400">/ ปี</span></div>
+                        <ul class="space-y-3 text-slate-300 text-sm mb-6 border-t border-slate-800 pt-4">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Free Bay 1 ชม. (Off-Peak)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Bay 5%</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด F&B 5% (ผ่าน POS)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Shop 5% (ผ่าน POS)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> คะแนนสะสม 1x</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectTierAndScroll('Classic')" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-2.5 rounded-xl transition text-sm">เลือก Classic</button>
+                </div>
+
+                <!-- Prime (Popular) -->
+                <div class="bg-[#111827] border-2 border-[#D4AF37] rounded-2xl p-6 flex flex-col justify-between relative shadow-xl">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#0A0F1D] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Most Popular</div>
+                    <div>
+                        <div class="text-[#D4AF37] font-semibold text-xs tracking-wider uppercase mb-1">Preferred Level</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Prime</h3>
+                        <div class="text-3xl font-extrabold text-white mb-4">฿2,990 <span class="text-xs font-normal text-slate-400">/ ปี</span></div>
+                        <ul class="space-y-3 text-slate-300 text-sm mb-6 border-t border-slate-800 pt-4">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Free Bay 3 ชม. (Off-Peak)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Bay 10%</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด F&B 5% (ผ่าน POS)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ฟรี Signature Drink 1 แก้ว (เดือนเกิด)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Shop 10% (ผ่าน POS)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> สิทธิ์จองล่วงหน้า (Priority Booking)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> คะแนนสะสม 1.5x</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectTierAndScroll('Prime')" class="w-full bg-[#D4AF37] text-[#0A0F1D] hover:bg-[#C59B27] font-bold py-2.5 rounded-xl transition text-sm">เลือก Prime</button>
+                </div>
+
+                <!-- Elite -->
+                <div class="bg-[#111827] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="text-[#D4AF37] font-semibold text-xs tracking-wider uppercase mb-1">Premium Level</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Elite</h3>
+                        <div class="text-3xl font-extrabold text-white mb-4">฿5,990 <span class="text-xs font-normal text-slate-400">/ ปี</span></div>
+                        <ul class="space-y-3 text-slate-300 text-sm mb-6 border-t border-slate-800 pt-4">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Free Bay 6 ชม. (Off-Peak)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Bay 15%</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด F&B 10% (ผ่าน POS)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ฟรี Signature Drink 1 แก้ว/เดือน (รวม 12 แก้ว)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Shop 10% (ผ่าน POS)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Priority Booking & Exclusive Offers</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> คะแนนสะสม 2x</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectTierAndScroll('Elite')" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-2.5 rounded-xl transition text-sm">เลือก Elite</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulator Section -->
+    <section id="simulator" class="py-16 bg-[#050811] border-t border-slate-800">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-2 text-white">โปรแกรมจำลองความคุ้มค่า (Savings Simulator)</h2>
+                <p class="text-slate-400 text-sm">ประเมินความประหยัดและคะแนนสะสมต่อปีของคุณ</p>
+            </div>
+            <div class="bg-[#111827] border border-slate-800 p-6 rounded-2xl space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">เลือกแพ็กเกจสมาชิกของคุณ:</label>
+                    <select id="simTier" onchange="calculateSavings()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#D4AF37]">
+                        <option value="Classic">Classic (฿1,490/ปี)</option>
+                        <option value="Prime" selected>Prime (฿2,990/ปี)</option>
+                        <option value="Elite">Elite (฿5,990/ปี)</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">ยอดใช้จ่าย Golf Bay ต่อปี (บาท):</label>
+                        <input type="number" id="simBaySpend" value="12000" oninput="calculateSavings()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">ยอดใช้จ่าย F&B & Shop ต่อปี (บาท):</label>
+                        <input type="number" id="simFbSpend" value="8000" oninput="calculateSavings()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm">
+                    </div>
+                </div>
+                <div class="bg-[#0A0F1D] p-4 rounded-xl border border-slate-800 grid grid-cols-2 gap-4 text-center">
+                    <div>
+                        <div class="text-xs text-slate-400 mb-1">มูลค่าประหยัดรวมต่อปี</div>
+                        <div id="simTotalSaving" class="text-2xl font-extrabold text-[#D4AF37]">฿0</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-400 mb-1">คะแนนสะสมที่ได้รับ</div>
+                        <div id="simTotalPoints" class="text-2xl font-extrabold text-emerald-400">0 Pts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration & Digital Pass Section -->
+    <section id="register" class="py-16 bg-[#0A0F1D] border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-2 text-white">สมัครสมาชิกออนไลน์ & ออกบัตรดิจิทัล</h2>
+                <p class="text-slate-400 text-sm">กรอกข้อมูลเพื่อรับ Member ID และสิทธิ์ E-Vouchers ทันที</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <!-- Registration Form -->
+                <form id="registrationForm" onsubmit="handleRegistration(event)" class="bg-[#111827] border border-slate-800 p-6 rounded-2xl space-y-4 shadow-xl">
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center"><i class="fa-solid fa-user-plus text-[#D4AF37] mr-2"></i> กรอกข้อมูลสมัครสมาชิก</h3>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">ชื่อ - นามสกุล *</label>
+                        <input type="text" id="regName" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]" placeholder="สมชาย ใจดี">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">อีเมล *</label>
+                        <input type="email" id="regEmail" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]" placeholder="somchai@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">เบอร์โทรศัพท์ *</label>
+                        <input type="tel" id="regPhone" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]" placeholder="081-234-5678">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">วัน/เดือน/ปีเกิด (สำหรับสิทธิ์ Birthday Benefit) *</label>
+                        <input type="date" id="regBirthDate" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">เลือกระดับสมาชิก *</label>
+                        <select id="regTier" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]">
+                            <option value="Classic">Classic - ฿1,490 / ปี</option>
+                            <option value="Prime" selected>Prime - ฿2,990 / ปี</option>
+                            <option value="Elite">Elite - ฿5,990 / ปี</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-3 rounded-xl text-sm hover:bg-[#C59B27] transition shadow-md mt-2">ชำระเงินและออกบัตรสมาชิก</button>
+                </form>
+
+                <!-- Digital Pass Display -->
+                <div id="digital-pass" class="bg-[#111827] border-2 border-[#D4AF37] p-6 rounded-2xl shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-2xl"></div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <div class="text-[10px] text-[#D4AF37] font-bold tracking-widest uppercase">One Golf Drive Club</div>
+                            <h4 class="text-lg font-extrabold text-white">Digital Membership Pass</h4>
+                        </div>
+                        <span id="cardTierBadge" class="bg-[#D4AF37] text-[#0A0F1D] px-2.5 py-1 rounded-md text-xs font-extrabold">PRIME</span>
+                    </div>
+
+                    <div class="space-y-3 bg-[#0A0F1D] p-4 rounded-xl border border-slate-800 mb-6 text-sm">
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs">Member ID:</span> <span id="cardMemberID" class="font-mono font-bold text-[#D4AF37]">OGD-M-882104</span></div>
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs">ชื่อสมาชิก:</span> <span id="cardMemberName" class="font-bold text-white">คุณสมชาย ใจดี</span></div>
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs">วันเกิด:</span> <span id="cardBirthDate" class="text-slate-200">15 พฤษภาคม 2538</span></div>
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs">Free Bay สิทธิ์คงเหลือ:</span> <span id="cardFreeBays" class="font-bold text-emerald-400">3 ชม. เหลืออยู่</span></div>
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs">สิทธิ์เครื่องดื่ม:</span> <span id="cardDrinkStatus" class="text-slate-200">สิทธิ์เดือนเกิด</span></div>
+                    </div>
+
+                    <!-- Member Vouchers Section -->
+                    <div class="border-t border-slate-800 pt-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <h5 class="text-xs font-bold text-white flex items-center"><i class="fa-solid fa-ticket text-[#D4AF37] mr-1.5"></i> Vouchers ของคุณ</h5>
+                            <span class="text-[9px] bg-amber-500/20 text-[#D4AF37] px-2 py-0.5 rounded font-mono font-bold" id="voucherCountBadge">4 Vouchers</span>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2.5 max-h-56 overflow-y-auto pr-1" id="memberVouchersGrid">
+                            <!-- Injected by JS -->
                         </div>
                     </div>
                 </div>
@@ -27,23 +232,101 @@
         </div>
     </section>
 
-    <!-- Modal Notification for Voucher Redemption -->
+    <!-- Admin Dashboard Section -->
+    <section class="py-16 bg-[#050811] border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <div>
+                    <h3 class="text-xl font-bold text-white">ระบบบริหารสมาชิก (Executive Admin Dashboard)</h3>
+                    <p class="text-slate-400 text-xs">ตรวจสอบรายชื่อสมาชิก วันเกิด และสถิติภาพรวมของคลับ</p>
+                </div>
+                <div class="flex space-x-2">
+                    <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Total Members: <strong id="adminTotalCount" class="text-[#D4AF37]">1</strong></span>
+                </div>
+            </div>
+
+            <div class="bg-[#111827] border border-slate-800 rounded-2xl overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-[#0A0F1D] text-slate-400 uppercase tracking-wider border-b border-slate-800">
+                        <tr>
+                            <th class="p-3">Member ID</th>
+                            <th class="p-3">ชื่อ-นามสกุล</th>
+                            <th class="p-3">วันเกิด</th>
+                            <th class="p-3">ระดับ (Tier)</th>
+                            <th class="p-3">Free Bay</th>
+                            <th class="p-3">สิทธิ์เครื่องดื่ม</th>
+                            <th class="p-3">สถานะ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody" class="divide-y divide-slate-800 text-slate-300">
+                        <!-- Injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voucher Modal -->
     <div id="voucherModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="bg-[#111827] border-2 border-[#D4AF37] rounded-2xl p-6 max-w-sm w-full text-center relative shadow-2xl">
-            <div class="w-16 h-16 bg-[#D4AF37]/20 border border-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-4 text-[#D4AF37] text-2xl">
+            <div class="w-14 h-14 bg-[#D4AF37]/20 border border-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-3 text-[#D4AF37] text-xl">
                 <i class="fa-solid fa-qrcode"></i>
             </div>
-            <h3 class="text-lg font-bold text-white mb-1" id="vModalTitle">ใช้สิทธิ์ Voucher</h3>
-            <p class="text-xs text-slate-400 mb-4" id="vModalSubtitle">ยื่นรหัสนี้ให้พนักงานหน้าเคาน์เตอร์เพื่อใช้สิทธิ์</p>
-            <div class="bg-[#0A0F1D] border border-slate-700 p-4 rounded-xl mb-4">
-                <div class="text-2xl font-mono font-bold text-[#D4AF37] tracking-widest" id="vModalCode">OGD-VOUCH-9921</div>
-                <div class="text-[10px] text-slate-500 mt-1">หมดอายุ: 31 ธ.ค. 2026</div>
+            <h3 class="text-base font-bold text-white mb-1" id="vModalTitle">ใช้สิทธิ์ Voucher</h3>
+            <p class="text-[11px] text-slate-400 mb-3">ยื่นรหัสนี้ให้พนักงานหน้าเคาน์เตอร์เพื่อใช้สิทธิ์</p>
+            <div class="bg-[#0A0F1D] border border-slate-700 p-3 rounded-xl mb-3">
+                <div class="text-xl font-mono font-bold text-[#D4AF37] tracking-widest" id="vModalCode">OGD-VOUCH-9921</div>
+                <div class="text-[9px] text-slate-500 mt-1">หมดอายุ: 31 ธ.ค. 2026</div>
             </div>
-            <button onclick="closeVoucherModal()" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-2.5 rounded-xl text-sm hover:bg-[#C59B27] transition">ปิดหน้าต่าง</button>
+            <button onclick="closeVoucherModal()" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-2 rounded-xl text-xs hover:bg-[#C59B27] transition">ปิดหน้าต่าง</button>
         </div>
     </div>
-<!-- ... existing code ... -->
-        // Registration Submission Handler
+
+    <!-- Footer -->
+    <footer class="bg-[#050811] border-t border-slate-800 py-6 text-center text-slate-500 text-xs">
+        <p>&copy; 2026 One Golf Drive Club. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        let membersData = [
+            { id: 'OGD-M-882104', name: 'คุณสมชาย ใจดี', birthDate: '1995-05-15', tier: 'Prime', freeBays: 3, drink: 'สิทธิ์เดือนเกิด', status: 'Active' }
+        ];
+
+        function selectTierAndScroll(tierName) {
+            document.getElementById('regTier').value = tierName;
+            document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateSavings() {
+            const tier = document.getElementById('simTier').value;
+            const baySpend = parseFloat(document.getElementById('simBaySpend').value) || 0;
+            const fbSpend = parseFloat(document.getElementById('simFbSpend').value) || 0;
+
+            let bayDisc = 0.05, fbDisc = 0.05, pointsRate = 1;
+            let freeBayVal = 600; // 1 hr off-peak value
+
+            if (tier === 'Classic') {
+                bayDisc = 0.05; fbDisc = 0.05; pointsRate = 1; freeBayVal = 600 * 1;
+            } else if (tier === 'Prime') {
+                bayDisc = 0.10; fbDisc = 0.05; pointsRate = 1.5; freeBayVal = 600 * 3;
+            } else if (tier === 'Elite') {
+                bayDisc = 0.15; fbDisc = 0.10; pointsRate = 2; freeBayVal = 600 * 6;
+            }
+
+            const saving = (baySpend * bayDisc) + (fbSpend * fbDisc) + freeBayVal;
+            const points = Math.floor(((baySpend + fbSpend) / 25) * pointsRate);
+
+            document.getElementById('simTotalSaving').innerText = `฿${Math.round(saving).toLocaleString()}`;
+            document.getElementById('simTotalPoints').innerText = `${points.toLocaleString()} Pts`;
+        }
+
+        function formatDateTH(dateStr) {
+            if (!dateStr) return '-';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
         function handleRegistration(e) {
             e.preventDefault();
             const name = document.getElementById('regName').value;
@@ -51,9 +334,8 @@
             const phone = document.getElementById('regPhone').value;
             const tier = document.getElementById('regTier').value;
             const birthDate = document.getElementById('regBirthDate').value;
-
             const randomID = 'OGD-M-' + Math.floor(100000 + Math.random() * 900000);
-            
+
             let baysText = '1 ชม.';
             let drinkText = '-';
             if (tier === 'Prime') {
@@ -64,7 +346,6 @@
                 drinkText = '1 แก้ว/เดือน';
             }
 
-            // Update Card Preview
             document.getElementById('cardMemberName').innerText = name;
             document.getElementById('cardMemberID').innerText = randomID;
             document.getElementById('cardBirthDate').innerText = formatDateTH(birthDate);
@@ -72,94 +353,40 @@
             document.getElementById('cardFreeBays').innerText = `${baysText} เหลืออยู่`;
             document.getElementById('cardDrinkStatus').innerText = drinkText;
 
-            // Render Member Vouchers
             renderMemberVouchers(tier);
 
-            // Push to Admin State
             membersData.unshift({
                 id: randomID,
                 name: name,
                 birthDate: birthDate,
                 tier: tier,
-                freeBays: parseInt(baysText),
+                freeBays: baysText,
                 drink: drinkText,
-                points: 0,
                 status: 'Active'
             });
-
             renderAdminTable();
-            updateAdminKPIs();
-
             document.getElementById('digital-pass').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Render Vouchers based on Member Tier
         function renderMemberVouchers(tier) {
             const grid = document.getElementById('memberVouchersGrid');
             if (!grid) return;
             grid.innerHTML = '';
-
             let vouchers = [];
+
             if (tier === 'Classic') {
                 vouchers = [
-                    { title: 'Free Standard Bay 1 ชม.', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-01', tag: 'Bay Voucher' },
-                    { title: 'ส่วนลด F&B 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS Discount' },
-                    { title: 'ส่วนลด Golf Shop 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS Discount' }
+                    { title: 'Free Standard Bay 1 ชม.', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-01', tag: 'Bay' },
+                    { title: 'ส่วนลด F&B 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS' },
+                    { title: 'ส่วนลด Golf Shop 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS' }
                 ];
             } else if (tier === 'Prime') {
                 vouchers = [
-                    { title: 'Free Standard Bay 1 ชม. (3 ใบ)', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-03', tag: 'Bay Voucher' },
-                    { title: 'Complimentary Birthday Drink', desc: 'เครื่องดื่ม Signature ฟรี 1 แก้วในเดือนเกิด', code: 'V-BDAY-DRINK', tag: 'Birthday' },
-                    { title: 'ส่วนลด F&B 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS Discount' },
-                    { title: 'ส่วนลด Golf Shop 10%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS Discount' }
+                    { title: 'Free Standard Bay 1 ชม. (3 ใบ)', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-03', tag: 'Bay' },
+                    { title: 'Complimentary Birthday Drink', desc: 'เครื่องดื่ม Signature ฟรี 1 แก้วในเดือนเกิด', code: 'V-BDAY', tag: 'Birthday' },
+                    { title: 'ส่วนลด F&B 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS' },
+                    { title: 'ส่วนลด Golf Shop 10%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS' }
                 ];
             } else {
                 vouchers = [
-                    { title: 'Free Standard Bay 1 ชม. (6 ใบ)', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-06', tag: 'Bay Voucher' },
-                    { title: 'Monthly Free Signature Drink Pass', desc: 'รับเครื่องดื่ม Signature ฟรี 1 แก้ว/เดือน (รวม 12 แก้ว/ปี)', code: 'V-ELITE-DRINK', tag: 'Monthly Pass' },
-                    { title: 'ส่วนลด F&B 10%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS Discount' },
-                    { title: 'ส่วนลด Golf Shop 10%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS Discount' },
-                    { title: 'VVIP Room Upgrade Discount', desc: 'สิทธิ์ส่วนลดพิเศษในการอัปเกรดเป็นห้อง VVIP ชั้น 3', code: 'V-VVIP-UPG', tag: 'Exclusive' }
-                ];
-            }
-
-            document.getElementById('voucherCountBadge').innerText = `${vouchers.length} Vouchers Available`;
-
-            vouchers.forEach(v => {
-                const div = document.createElement('div');
-                div.className = "bg-[#0A0F1D] border border-slate-800 p-3.5 rounded-xl flex justify-between items-center hover:border-[#D4AF37]/50 transition";
-                div.innerHTML = `
-                    <div>
-                        <div class="flex items-center space-x-2 mb-1">
-                            <span class="text-[9px] bg-[#D4AF37]/20 text-[#D4AF37] px-1.5 py-0.2 rounded font-bold uppercase">${v.tag}</span>
-                            <h5 class="text-xs font-bold text-white">${v.title}</h5>
-                        </div>
-                        <p class="text-[10px] text-slate-400">${v.desc}</p>
-                    </div>
-                    <button type="button" onclick="openVoucherModal('${v.title}', '${v.code}')" class="ml-3 bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-[#D4AF37] text-[10px] font-bold px-3 py-1.5 rounded-lg transition border border-slate-700 whitespace-nowrap">
-                        กดใช้สิทธิ์
-                    </button>
-                `;
-                grid.appendChild(div);
-            });
-        }
-
-        function openVoucherModal(title, code) {
-            document.getElementById('vModalTitle').innerText = title;
-            document.getElementById('vModalCode').innerText = code + '-' + Math.floor(1000 + Math.random() * 9000);
-            document.getElementById('voucherModal').classList.remove('hidden');
-        }
-
-        function closeVoucherModal() {
-            document.getElementById('voucherModal').classList.add('hidden');
-        }
-
-        window.onload = function() {
-            calculateSavings();
-            renderAdminTable();
-            renderMemberVouchers('Prime');
-            
-            const birthInput = document.getElementById('regBirthDate');
-            if (birthInput) birthInput.value = '1995-05-15';
-        };
-<!-- ... existing code ... -->
+                    { title: 'Free Standard Bay 1 ชม. (6 ใบ)', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-
