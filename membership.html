@@ -25,14 +25,31 @@
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <img src="Logo2.jpg" alt="Logo" class="w-12 h-12 rounded-full border-2 border-[#D4AF37] object-cover gold-glow shadow-xl">
-                <span class="text-xl font-bold tracking-wider text-white">ONE GOLF DRIVE CLUB</span>
+                <span class="text-xl font-bold tracking-wider text-white" data-en="ONE GOLF DRIVE CLUB" data-th="วัน กอล์ฟ ไดร์ฟ คลับ" data-cn="第一高尔夫驱动俱乐部">ONE GOLF DRIVE CLUB</span>
             </div>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
-                <a href="index.html" class="hover:text-[#D4AF37] transition flex items-center gap-1"><i class="fa-solid fa-arrow-left mr-1"></i> Back to Reservations</a>
-                <a href="#tiers" class="hover:text-[#D4AF37] transition">Membership Tiers</a>
-                <a href="#simulator" class="hover:text-[#D4AF37] transition">Savings Simulator</a>
-                <a href="#register" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition">Apply Now</a>
-            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+                    <a href="index.html" class="hover:text-[#D4AF37] transition flex items-center gap-1"><i class="fa-solid fa-arrow-left mr-1"></i> <span data-en="Back to Reservations" data-th="กลับสู่หน้าจองสนาม" data-cn="返回预订">Back to Reservations</span></a>
+                    <a href="#tiers" class="hover:text-[#D4AF37] transition" data-en="Membership Tiers" data-th="ระดับสมาชิก" data-cn="会员等级">Membership Tiers</a>
+                    <a href="#simulator" class="hover:text-[#D4AF37] transition" data-en="Savings Simulator" data-th="คำนวณความคุ้มค่า" data-cn="节省计算器">Savings Simulator</a>
+                    <a href="#register" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition" data-en="Apply Now" data-th="สมัครสมาชิก" data-cn="立即申请">Apply Now</a>
+                </nav>
+
+                <!-- Language Selector Dropdown -->
+                <div class="relative inline-block text-left">
+                    <button type="button" onclick="toggleLangDropdown()" class="bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition border border-slate-700 flex items-center space-x-1 cursor-pointer">
+                        <span>🌐</span>
+                        <span id="langLabel">EN</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
+                    </button>
+                    <div id="langDropdownMenu" class="hidden absolute right-0 mt-2 w-28 bg-[#111827] border border-slate-700 rounded-lg shadow-xl z-50 overflow-hidden">
+                        <button type="button" onclick="setLanguage('en')" class="w-full text-left px-4 py-2 text-xs text-slate-200 hover:bg-[#D4AF37] hover:text-[#0A0F1D] transition">English</button>
+                        <button type="button" onclick="setLanguage('th')" class="w-full text-left px-4 py-2 text-xs text-slate-200 hover:bg-[#D4AF37] hover:text-[#0A0F1D] transition">ไทย</button>
+                        <button type="button" onclick="setLanguage('cn')" class="w-full text-left px-4 py-2 text-xs text-slate-200 hover:bg-[#D4AF37] hover:text-[#0A0F1D] transition">中文</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -40,14 +57,14 @@
     <section class="relative bg-[url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center py-20">
         <div class="absolute inset-0 bg-[#0A0F1D]/85"></div>
         <div class="relative max-w-4xl mx-auto text-center px-4 text-white">
-            <span class="text-[#D4AF37] font-semibold text-sm tracking-widest uppercase mb-3 block">Annual Membership Program</span>
+            <span class="text-[#D4AF37] font-semibold text-sm tracking-widest uppercase mb-3 block" data-en="Annual Membership Program" data-th="โปรแกรมสมาชิกรายปี" data-cn="年度会员计划">Annual Membership Program</span>
             <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
-                Elevate Your Golf Experience at <span class="gold-gradient">One Golf Drive Club</span>
+                <span data-en="Elevate Your Golf Experience at" data-th="ยกระดับประสบการณ์กอล์ฟของคุณที่" data-cn="提升您的高尔夫体验在">Elevate Your Golf Experience at</span> <span class="gold-gradient">One Golf Drive Club</span>
             </h1>
-            <p class="text-base md:text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+            <p class="text-base md:text-lg text-slate-300 mb-8 max-w-2xl mx-auto" data-en="Exclusive benefits, complimentary off-peak golf hours, F&B and Golf Shop discounts via POS, plus member points." data-th="สิทธิประโยชน์เหนือระดับ ชั่วโมงเล่นกอล์ฟฟรีช่วง Off-Peak, ส่วนลด F&B และ Golf Shop ผ่านระบบ POS หน้างาน พร้อมระบบสะสมคะแนนพิเศษ" data-cn="专属福利，非高峰期免费高尔夫小时数，通过POS系统享受餐饮和高尔夫商店折扣，以及积分系统。">
                 สิทธิประโยชน์เหนือระดับ ชั่วโมงเล่นกอล์ฟฟรีช่วง Off-Peak, ส่วนลด F&B และ Golf Shop ผ่านระบบ POS หน้างาน พร้อมระบบสะสมคะแนนพิเศษ
             </p>
-            <a href="#register" class="bg-[#D4AF37] text-[#0A0F1D] font-bold px-8 py-3.5 rounded-xl text-base hover:bg-[#C59B27] transition shadow-lg inline-block">สมัครสมาชิกรายปี</a>
+            <a href="#register" class="bg-[#D4AF37] text-[#0A0F1D] font-bold px-8 py-3.5 rounded-xl text-base hover:bg-[#C59B27] transition shadow-lg inline-block" data-en="Apply For Membership" data-th="สมัครสมาชิกรายปี" data-cn="申请年卡会员">สมัครสมาชิกรายปี</a>
         </div>
     </section>
 
@@ -55,65 +72,65 @@
     <section id="tiers" class="py-16 bg-[#0A0F1D]">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2 text-white">เลือกระดับสมาชิกที่เหมาะกับคุณ</h2>
-                <p class="text-slate-400 text-sm">3 ระดับสมาชิกรายปี (Classic, Prime, Elite) พร้อมสิทธิประโยชน์จัดเต็ม</p>
+                <h2 class="text-3xl font-bold mb-2 text-white" data-en="Choose Your Membership Tier" data-th="เลือกระดับสมาชิกที่เหมาะกับคุณ" data-cn="选择您的会员等级">Choose Your Membership Tier</h2>
+                <p class="text-slate-400 text-sm" data-en="3 Annual Membership tiers (Classic, Prime, Elite) loaded with perks." data-th="3 ระดับสมาชิกรายปี (Classic, Prime, Elite) พร้อมสิทธิประโยชน์จัดเต็ม" data-cn="3个年度会员等级（经典、优越、尊贵），福利满满。">3 ระดับสมาชิกรายปี (Classic, Prime, Elite) พร้อมสิทธิประโยชน์จัดเต็ม</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Classic -->
                 <div class="bg-[#111827] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
-                        <div class="text-[#D4AF37] font-semibold text-xs tracking-wider uppercase mb-1">Entry Level</div>
+                        <div class="text-[#D4AF37] font-semibold text-xs tracking-wider uppercase mb-1" data-en="Entry Level" data-th="ระดับเริ่มต้น" data-cn="入门级">Entry Level</div>
                         <h3 class="text-2xl font-bold text-white mb-2">Classic</h3>
-                        <div class="text-3xl font-extrabold text-white mb-4">฿1,490 <span class="text-xs font-normal text-slate-400">/ ปี</span></div>
+                        <div class="text-3xl font-extrabold text-white mb-4">฿1,490 <span class="text-xs font-normal text-slate-400" data-en="/ year" data-th="/ ปี" data-cn="/ 年">/ ปี</span></div>
                         <ul class="space-y-3 text-slate-300 text-sm mb-6 border-t border-slate-800 pt-4">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Free Bay 1 ชม. (Off-Peak)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Bay 5%</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด F&B 5% (ผ่าน POS)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Shop 5% (ผ่าน POS)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> คะแนนสะสม 1x</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Free Bay 1 hr (Off-Peak)" data-th="Free Bay 1 ชม. (Off-Peak)" data-cn="免费击球区 1小时 (非高峰期)">Free Bay 1 ชม. (Off-Peak)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Golf Bay Discount 5%" data-th="ส่วนลด Golf Bay 5%" data-cn="高尔夫击球区 5% 折扣">ส่วนลด Golf Bay 5%</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="F&B Discount 5% (via POS)" data-th="ส่วนลด F&B 5% (ผ่าน POS)" data-cn="餐饮 5% 折扣 (通过POS)">ส่วนลด F&B 5% (ผ่าน POS)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Golf Shop Discount 5% (via POS)" data-th="ส่วนลด Golf Shop 5% (ผ่าน POS)" data-cn="高尔夫商店 5% 折扣 (通过POS)">ส่วนลด Golf Shop 5% (ผ่าน POS)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Member Points 1x" data-th="คะแนนสะสม 1x" data-cn="积分 1x">คะแนนสะสม 1x</span></li>
                         </ul>
                     </div>
-                    <button onclick="selectTierAndScroll('Classic')" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-2.5 rounded-xl transition text-sm">เลือก Classic</button>
+                    <button onclick="selectTierAndScroll('Classic')" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-2.5 rounded-xl transition text-sm cursor-pointer" data-en="Select Classic" data-th="เลือก Classic" data-cn="选择 经典卡">Select Classic</button>
                 </div>
 
                 <!-- Prime (Popular) -->
                 <div class="bg-[#111827] border-2 border-[#D4AF37] rounded-2xl p-6 flex flex-col justify-between relative shadow-xl">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#0A0F1D] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Most Popular</div>
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#0A0F1D] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" data-en="Most Popular" data-th="ยอดนิยมที่สุด" data-cn="最受欢迎">Most Popular</div>
                     <div>
-                        <div class="text-[#D4AF37] font-semibold text-xs tracking-wider uppercase mb-1">Preferred Level</div>
+                        <div class="text-[#D4AF37] font-semibold text-xs tracking-wider uppercase mb-1" data-en="Preferred Level" data-th="ระดับพรีเฟอร์" data-cn="优越级">Preferred Level</div>
                         <h3 class="text-2xl font-bold text-white mb-2">Prime</h3>
-                        <div class="text-3xl font-extrabold text-white mb-4">฿2,990 <span class="text-xs font-normal text-slate-400">/ ปี</span></div>
+                        <div class="text-3xl font-extrabold text-white mb-4">฿2,990 <span class="text-xs font-normal text-slate-400" data-en="/ year" data-th="/ ปี" data-cn="/ 年">/ ปี</span></div>
                         <ul class="space-y-3 text-slate-300 text-sm mb-6 border-t border-slate-800 pt-4">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Free Bay 3 ชม. (Off-Peak)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Bay 10%</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด F&B 5% (ผ่าน POS)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ฟรี Signature Drink 1 แก้ว (เดือนเกิด)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Shop 10% (ผ่าน POS)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> สิทธิ์จองล่วงหน้า (Priority Booking)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> คะแนนสะสม 1.5x</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Free Bay 3 hrs (Off-Peak)" data-th="Free Bay 3 ชม. (Off-Peak)" data-cn="免费击球区 3小时 (非高峰期)">Free Bay 3 ชม. (Off-Peak)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Golf Bay Discount 10%" data-th="ส่วนลด Golf Bay 10%" data-cn="高尔夫击球区 10% 折扣">ส่วนลด Golf Bay 10%</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="F&B Discount 5% (via POS)" data-th="ส่วนลด F&B 5% (ผ่าน POS)" data-cn="餐饮 5% 折扣 (通过POS)">ส่วนลด F&B 5% (ผ่าน POS)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Free Signature Drink (Birthday Month)" data-th="ฟรี Signature Drink 1 แก้ว (เดือนเกิด)" data-cn="生日月免费招牌饮品 1杯">ฟรี Signature Drink 1 แก้ว (เดือนเกิด)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Golf Shop Discount 10% (via POS)" data-th="ส่วนลด Golf Shop 10% (ผ่าน POS)" data-cn="高尔夫商店 10% 折扣 (通过POS)">ส่วนลด Golf Shop 10% (ผ่าน POS)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Priority Booking" data-th="สิทธิ์จองล่วงหน้า (Priority Booking)" data-cn="优先预订特权">Priority Booking</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Member Points 1.5x" data-th="คะแนนสะสม 1.5x" data-cn="积分 1.5x">คะแนนสะสม 1.5x</span></li>
                         </ul>
                     </div>
-                    <button onclick="selectTierAndScroll('Prime')" class="w-full bg-[#D4AF37] text-[#0A0F1D] hover:bg-[#C59B27] font-bold py-2.5 rounded-xl transition text-sm">เลือก Prime</button>
+                    <button onclick="selectTierAndScroll('Prime')" class="w-full bg-[#D4AF37] text-[#0A0F1D] hover:bg-[#C59B27] font-bold py-2.5 rounded-xl transition text-sm cursor-pointer" data-en="Select Prime" data-th="เลือก Prime" data-cn="选择 优越卡">Select Prime</button>
                 </div>
 
                 <!-- Elite -->
                 <div class="bg-[#111827] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
-                        <div class="text-[#D4AF37] font-semibold text-xs tracking-wider uppercase mb-1">Premium Level</div>
+                        <div class="text-[#D4AF37] font-semibold text-xs tracking-wider uppercase mb-1" data-en="Premium Level" data-th="ระดับพรีเมียม" data-cn="尊贵级">Premium Level</div>
                         <h3 class="text-2xl font-bold text-white mb-2">Elite</h3>
-                        <div class="text-3xl font-extrabold text-white mb-4">฿5,990 <span class="text-xs font-normal text-slate-400">/ ปี</span></div>
+                        <div class="text-3xl font-extrabold text-white mb-4">฿5,990 <span class="text-xs font-normal text-slate-400" data-en="/ year" data-th="/ ปี" data-cn="/ 年">/ ปี</span></div>
                         <ul class="space-y-3 text-slate-300 text-sm mb-6 border-t border-slate-800 pt-4">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Free Bay 6 ชม. (Off-Peak)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Bay 15%</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด F&B 10% (ผ่าน POS)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ฟรี Signature Drink 1 แก้ว/เดือน (รวม 12 แก้ว)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> ส่วนลด Golf Shop 10% (ผ่าน POS)</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Priority Booking & Exclusive Offers</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> คะแนนสะสม 2x</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Free Bay 6 hrs (Off-Peak)" data-th="Free Bay 6 ชม. (Off-Peak)" data-cn="免费击球区 6小时 (非高峰期)">Free Bay 6 ชม. (Off-Peak)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Golf Bay Discount 15%" data-th="ส่วนลด Golf Bay 15%" data-cn="高尔夫击球区 15% 折扣">ส่วนลด Golf Bay 15%</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="F&B Discount 10% (via POS)" data-th="ส่วนลด F&B 10% (ผ่าน POS)" data-cn="餐饮 10% 折扣 (通过POS)">ส่วนลด F&B 10% (ผ่าน POS)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Free Monthly Signature Drink (12/yr)" data-th="ฟรี Signature Drink 1 แก้ว/เดือน (รวม 12 แก้ว)" data-cn="每月免费招牌饮品 (年共12杯)">ฟรี Signature Drink 1 แก้ว/เดือน (รวม 12 แก้ว)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Golf Shop Discount 10% (via POS)" data-th="ส่วนลด Golf Shop 10% (ผ่าน POS)" data-cn="高尔夫商店 10% 折扣 (通过POS)">ส่วนลด Golf Shop 10% (ผ่าน POS)</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Priority Booking & Exclusive Offers" data-th="Priority Booking & Exclusive Offers" data-cn="优先预订与独家优惠">Priority Booking & Exclusive Offers</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> <span data-en="Member Points 2x" data-th="คะแนนสะสม 2x" data-cn="积分 2x">คะแนนสะสม 2x</span></li>
                         </ul>
                     </div>
-                    <button onclick="selectTierAndScroll('Elite')" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-2.5 rounded-xl transition text-sm">เลือก Elite</button>
+                    <button onclick="selectTierAndScroll('Elite')" class="w-full bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-white font-bold py-2.5 rounded-xl transition text-sm cursor-pointer" data-en="Select Elite" data-th="เลือก Elite" data-cn="选择 尊贵卡">Select Elite</button>
                 </div>
             </div>
         </div>
@@ -123,35 +140,35 @@
     <section id="simulator" class="py-16 bg-[#050811] border-t border-slate-800">
         <div class="max-w-3xl mx-auto px-4">
             <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-bold mb-2 text-white">โปรแกรมจำลองความคุ้มค่า (Savings Simulator)</h2>
-                <p class="text-slate-400 text-sm">ประเมินความประหยัดและคะแนนสะสมต่อปีของคุณ</p>
+                <h2 class="text-2xl md:text-3xl font-bold mb-2 text-white" data-en="Savings & Rewards Simulator" data-th="โปรแกรมจำลองความคุ้มค่า (Savings Simulator)" data-cn="节省与奖励模拟器">Savings & Rewards Simulator</h2>
+                <p class="text-slate-400 text-sm" data-en="Estimate your annual savings and membership reward points." data-th="ประเมินความประหยัดและคะแนนสะสมต่อปีของคุณ" data-cn="估算您的年度节省金额和会员积分奖励。">ประเมินความประหยัดและคะแนนสะสมต่อปีของคุณ</p>
             </div>
             <div class="bg-[#111827] border border-slate-800 p-6 rounded-2xl space-y-6">
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-2">เลือกแพ็กเกจสมาชิกของคุณ:</label>
+                    <label class="block text-sm font-medium text-slate-300 mb-2" data-en="Select Your Tier:" data-th="เลือกแพ็กเกจสมาชิกของคุณ:" data-cn="选择您的会员等级：">Select Your Tier:</label>
                     <select id="simTier" onchange="calculateSavings()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#D4AF37]">
-                        <option value="Classic">Classic (฿1,490/ปี)</option>
-                        <option value="Prime" selected>Prime (฿2,990/ปี)</option>
-                        <option value="Elite">Elite (฿5,990/ปี)</option>
+                        <option value="Classic">Classic (฿1,490/yr)</option>
+                        <option value="Prime" selected>Prime (฿2,990/yr)</option>
+                        <option value="Elite">Elite (฿5,990/yr)</option>
                     </select>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-medium text-slate-400 mb-1">ยอดใช้จ่าย Golf Bay ต่อปี (บาท):</label>
+                        <label class="block text-xs font-medium text-slate-400 mb-1" data-en="Annual Golf Bay Spend (THB):" data-th="ยอดใช้จ่าย Golf Bay ต่อปี (บาท):" data-cn="年度高尔夫击球区消费 (泰铢)：">Annual Golf Bay Spend (THB):</label>
                         <input type="number" id="simBaySpend" value="12000" oninput="calculateSavings()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-slate-400 mb-1">ยอดใช้จ่าย F&B & Shop ต่อปี (บาท):</label>
+                        <label class="block text-xs font-medium text-slate-400 mb-1" data-en="Annual F&B & Shop Spend (THB):" data-th="ยอดใช้จ่าย F&B & Shop ต่อปี (บาท):" data-cn="年度餐饮及商店消费 (泰铢)：">Annual F&B & Shop Spend (THB):</label>
                         <input type="number" id="simFbSpend" value="8000" oninput="calculateSavings()" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm">
                     </div>
                 </div>
                 <div class="bg-[#0A0F1D] p-4 rounded-xl border border-slate-800 grid grid-cols-2 gap-4 text-center">
                     <div>
-                        <div class="text-xs text-slate-400 mb-1">มูลค่าประหยัดรวมต่อปี</div>
+                        <div class="text-xs text-slate-400 mb-1" data-en="Estimated Annual Savings" data-th="มูลค่าประหยัดรวมต่อปี" data-cn="预计年度节省总额">Estimated Annual Savings</div>
                         <div id="simTotalSaving" class="text-2xl font-extrabold text-[#D4AF37]">฿0</div>
                     </div>
                     <div>
-                        <div class="text-xs text-slate-400 mb-1">คะแนนสะสมที่ได้รับ</div>
+                        <div class="text-xs text-slate-400 mb-1" data-en="Estimated Member Points" data-th="คะแนนสะสมที่ได้รับ" data-cn="预计获得的会员积分">Estimated Member Points</div>
                         <div id="simTotalPoints" class="text-2xl font-extrabold text-emerald-400">0 Pts</div>
                     </div>
                 </div>
@@ -163,39 +180,39 @@
     <section id="register" class="py-16 bg-[#0A0F1D] border-t border-slate-800">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-bold mb-2 text-white">สมัครสมาชิกออนไลน์ & ออกบัตรดิจิทัล</h2>
-                <p class="text-slate-400 text-sm">กรอกข้อมูลเพื่อรับ Member ID และสิทธิ์ E-Vouchers ทันที</p>
+                <h2 class="text-2xl md:text-3xl font-bold mb-2 text-white" data-en="Online Registration & Digital Pass" data-th="สมัครสมาชิกออนไลน์ & ออกบัตรดิจิทัล" data-cn="在线注册与数字会员卡">Online Registration & Digital Pass</h2>
+                <p class="text-slate-400 text-sm" data-en="Fill in your details to get your Member ID and instant E-Vouchers." data-th="กรอกข้อมูลเพื่อรับ Member ID และสิทธิ์ E-Vouchers ทันที" data-cn="填写您的详细信息以获取会员ID和即时电子优惠券。">กรอกข้อมูลเพื่อรับ Member ID และสิทธิ์ E-Vouchers ทันที</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <!-- Registration Form -->
                 <form id="registrationForm" onsubmit="handleRegistration(event)" class="bg-[#111827] border border-slate-800 p-6 rounded-2xl space-y-4 shadow-xl">
-                    <h3 class="text-lg font-bold text-white mb-2 flex items-center"><i class="fa-solid fa-user-plus text-[#D4AF37] mr-2"></i> กรอกข้อมูลสมัครสมาชิก</h3>
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center"><i class="fa-solid fa-user-plus text-[#D4AF37] mr-2"></i> <span data-en="Member Registration" data-th="กรอกข้อมูลสมัครสมาชิก" data-cn="会员注册">Member Registration</span></h3>
                     <div>
-                        <label class="block text-xs font-medium text-slate-300 mb-1">ชื่อ - นามสกุล *</label>
-                        <input type="text" id="regName" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]" placeholder="สมชาย ใจดี">
+                        <label class="block text-xs font-medium text-slate-300 mb-1" data-en="Full Name *" data-th="ชื่อ - นามสกุล *" data-cn="姓名 *">Full Name *</label>
+                        <input type="text" id="regName" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]" placeholder="Somchai Jaidee">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-slate-300 mb-1">อีเมล *</label>
+                        <label class="block text-xs font-medium text-slate-300 mb-1" data-en="Email *" data-th="อีเมล *" data-cn="电子邮箱 *">Email *</label>
                         <input type="email" id="regEmail" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]" placeholder="somchai@example.com">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-slate-300 mb-1">เบอร์โทรศัพท์ *</label>
+                        <label class="block text-xs font-medium text-slate-300 mb-1" data-en="Phone Number *" data-th="เบอร์โทรศัพท์ *" data-cn="电话号码 *">Phone Number *</label>
                         <input type="tel" id="regPhone" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]" placeholder="081-234-5678">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-slate-300 mb-1">วัน/เดือน/ปีเกิด (สำหรับสิทธิ์ Birthday Benefit) *</label>
+                        <label class="block text-xs font-medium text-slate-300 mb-1" data-en="Date of Birth (For Birthday Benefit) *" data-th="วัน/เดือน/ปีเกิด (สำหรับสิทธิ์ Birthday Benefit) *" data-cn="出生日期 (用于生日福利) *">Date of Birth (For Birthday Benefit) *</label>
                         <input type="date" id="regBirthDate" required class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-slate-300 mb-1">เลือกระดับสมาชิก *</label>
+                        <label class="block text-xs font-medium text-slate-300 mb-1" data-en="Select Membership Tier *" data-th="เลือกระดับสมาชิก *" data-cn="选择会员等级 *">Select Membership Tier *</label>
                         <select id="regTier" class="w-full bg-[#0A0F1D] border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#D4AF37]">
-                            <option value="Classic">Classic - ฿1,490 / ปี</option>
-                            <option value="Prime" selected>Prime - ฿2,990 / ปี</option>
-                            <option value="Elite">Elite - ฿5,990 / ปี</option>
+                            <option value="Classic">Classic - ฿1,490 / yr</option>
+                            <option value="Prime" selected>Prime - ฿2,990 / yr</option>
+                            <option value="Elite">Elite - ฿5,990 / yr</option>
                         </select>
                     </div>
-                    <button type="submit" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-3 rounded-xl text-sm hover:bg-[#C59B27] transition shadow-md mt-2">ชำระเงินและออกบัตรสมาชิก</button>
+                    <button type="submit" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-3 rounded-xl text-sm hover:bg-[#C59B27] transition shadow-md mt-2 cursor-pointer" data-en="Proceed & Issue Digital Pass" data-th="ชำระเงินและออกบัตรสมาชิก" data-cn="付款并生成电子会员卡">Proceed & Issue Digital Pass</button>
                 </form>
 
                 <!-- Digital Pass Display -->
@@ -204,23 +221,23 @@
                     <div class="flex justify-between items-start mb-6">
                         <div>
                             <div class="text-[10px] text-[#D4AF37] font-bold tracking-widest uppercase">One Golf Drive Club</div>
-                            <h4 class="text-lg font-extrabold text-white">Digital Membership Pass</h4>
+                            <h4 class="text-lg font-extrabold text-white" data-en="Digital Membership Pass" data-th="บัตรสมาชิกดิจิทัล" data-cn="数字会员通行证">Digital Membership Pass</h4>
                         </div>
                         <span id="cardTierBadge" class="bg-[#D4AF37] text-[#0A0F1D] px-2.5 py-1 rounded-md text-xs font-extrabold">PRIME</span>
                     </div>
 
                     <div class="space-y-3 bg-[#0A0F1D] p-4 rounded-xl border border-slate-800 mb-6 text-sm">
-                        <div class="flex justify-between"><span class="text-slate-400 text-xs">Member ID:</span> <span id="cardMemberID" class="font-mono font-bold text-[#D4AF37]">OGD-M-882104</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400 text-xs">ชื่อสมาชิก:</span> <span id="cardMemberName" class="font-bold text-white">คุณสมชาย ใจดี</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400 text-xs">วันเกิด:</span> <span id="cardBirthDate" class="text-slate-200">15 พฤษภาคม 2538</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400 text-xs">Free Bay สิทธิ์คงเหลือ:</span> <span id="cardFreeBays" class="font-bold text-emerald-400">3 ชม. เหลืออยู่</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400 text-xs">สิทธิ์เครื่องดื่ม:</span> <span id="cardDrinkStatus" class="text-slate-200">สิทธิ์เดือนเกิด</span></div>
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs" data-en="Member ID:" data-th="รหัสสมาชิก:" data-cn="会员ID：">Member ID:</span> <span id="cardMemberID" class="font-mono font-bold text-[#D4AF37]">OGD-M-882104</span></div>
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs" data-en="Member Name:" data-th="ชื่อสมาชิก:" data-cn="会员姓名：">Member Name:</span> <span id="cardMemberName" class="font-bold text-white">คุณสมชาย ใจดี</span></div>
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs" data-en="Date of Birth:" data-th="วันเกิด:" data-cn="出生日期：">Date of Birth:</span> <span id="cardBirthDate" class="text-slate-200">15 พฤษภาคม 2538</span></div>
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs" data-en="Free Bay Balance:" data-th="Free Bay สิทธิ์คงเหลือ:" data-cn="免费击球区余额：">Free Bay Balance:</span> <span id="cardFreeBays" class="font-bold text-emerald-400">3 hrs remaining</span></div>
+                        <div class="flex justify-between"><span class="text-slate-400 text-xs" data-en="Drink Privilege:" data-th="สิทธิ์เครื่องดื่ม:" data-cn="饮品特权：">Drink Privilege:</span> <span id="cardDrinkStatus" class="text-slate-200">Birthday Benefit</span></div>
                     </div>
 
                     <!-- Member Vouchers Section -->
                     <div class="border-t border-slate-800 pt-4">
                         <div class="flex justify-between items-center mb-3">
-                            <h5 class="text-xs font-bold text-white flex items-center"><i class="fa-solid fa-ticket text-[#D4AF37] mr-1.5"></i> Vouchers ของคุณ</h5>
+                            <h5 class="text-xs font-bold text-white flex items-center"><i class="fa-solid fa-ticket text-[#D4AF37] mr-1.5"></i> <span data-en="Your Vouchers" data-th="Vouchers ของคุณ" data-cn="您的优惠券">Your Vouchers</span></h5>
                             <span class="text-[9px] bg-amber-500/20 text-[#D4AF37] px-2 py-0.5 rounded font-mono font-bold" id="voucherCountBadge">4 Vouchers</span>
                         </div>
                         <div class="grid grid-cols-1 gap-2.5 max-h-56 overflow-y-auto pr-1" id="memberVouchersGrid">
@@ -237,8 +254,8 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
-                    <h3 class="text-xl font-bold text-white">ระบบบริหารสมาชิก (Executive Admin Dashboard)</h3>
-                    <p class="text-slate-400 text-xs">ตรวจสอบรายชื่อสมาชิก วันเกิด และสถิติภาพรวมของคลับ</p>
+                    <h3 class="text-xl font-bold text-white" data-en="Executive Admin Dashboard" data-th="ระบบบริหารสมาชิก (Executive Admin Dashboard)" data-cn="行政管理后台">Executive Admin Dashboard</h3>
+                    <p class="text-slate-400 text-xs" data-en="Monitor member lists, birthdays, and club summary statistics." data-th="ตรวจสอบรายชื่อสมาชิก วันเกิด และสถิติภาพรวมของคลับ" data-cn="监控会员名单、生日及俱乐部统计数据。">Monitor member lists, birthdays, and club summary statistics.</p>
                 </div>
                 <div class="flex space-x-2">
                     <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Total Members: <strong id="adminTotalCount" class="text-[#D4AF37]">1</strong></span>
@@ -249,13 +266,13 @@
                 <table class="w-full text-left text-xs">
                     <thead class="bg-[#0A0F1D] text-slate-400 uppercase tracking-wider border-b border-slate-800">
                         <tr>
-                            <th class="p-3">Member ID</th>
-                            <th class="p-3">ชื่อ-นามสกุล</th>
-                            <th class="p-3">วันเกิด</th>
-                            <th class="p-3">ระดับ (Tier)</th>
-                            <th class="p-3">Free Bay</th>
-                            <th class="p-3">สิทธิ์เครื่องดื่ม</th>
-                            <th class="p-3">สถานะ</th>
+                            <th class="p-3" data-en="Member ID" data-th="Member ID" data-cn="会员ID">Member ID</th>
+                            <th class="p-3" data-en="Full Name" data-th="ชื่อ-นามสกุล" data-cn="姓名">Full Name</th>
+                            <th class="p-3" data-en="Date of Birth" data-th="วันเกิด" data-cn="出生日期">Date of Birth</th>
+                            <th class="p-3" data-en="Tier" data-th="ระดับ (Tier)" data-cn="等级">Tier</th>
+                            <th class="p-3" data-en="Free Bay" data-th="Free Bay" data-cn="免费击球区">Free Bay</th>
+                            <th class="p-3" data-en="Drink Privilege" data-th="สิทธิ์เครื่องดื่ม" data-cn="饮品特权">Drink Privilege</th>
+                            <th class="p-3" data-en="Status" data-th="สถานะ" data-cn="状态">Status</th>
                         </tr>
                     </thead>
                     <tbody id="adminTableBody" class="divide-y divide-slate-800 text-slate-300">
@@ -272,13 +289,13 @@
             <div class="w-14 h-14 bg-[#D4AF37]/20 border border-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-3 text-[#D4AF37] text-xl">
                 <i class="fa-solid fa-qrcode"></i>
             </div>
-            <h3 class="text-base font-bold text-white mb-1" id="vModalTitle">ใช้สิทธิ์ Voucher</h3>
-            <p class="text-[11px] text-slate-400 mb-3">ยื่นรหัสนี้ให้พนักงานหน้าเคาน์เตอร์เพื่อใช้สิทธิ์</p>
+            <h3 class="text-base font-bold text-white mb-1" id="vModalTitle" data-en="Redeem Voucher" data-th="ใช้สิทธิ์ Voucher" data-cn="兑换优惠券">Redeem Voucher</h3>
+            <p class="text-[11px] text-slate-400 mb-3" data-en="Present this code to counter staff." data-th="ยื่นรหัสนี้ให้พนักงานหน้าเคาน์เตอร์เพื่อใช้สิทธิ์" data-cn="请向柜台员工出示此代码。">Present this code to counter staff.</p>
             <div class="bg-[#0A0F1D] border border-slate-700 p-3 rounded-xl mb-3">
                 <div class="text-xl font-mono font-bold text-[#D4AF37] tracking-widest" id="vModalCode">OGD-VOUCH-9921</div>
-                <div class="text-[9px] text-slate-500 mt-1">หมดอายุ: 31 ธ.ค. 2026</div>
+                <div class="text-[9px] text-slate-500 mt-1" data-en="Expires: Dec 31, 2026" data-th="หมดอายุ: 31 ธ.ค. 2026" data-cn="有效期至：2026年12月31日">Expires: Dec 31, 2026</div>
             </div>
-            <button onclick="closeVoucherModal()" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-2 rounded-xl text-xs hover:bg-[#C59B27] transition">ปิดหน้าต่าง</button>
+            <button onclick="closeVoucherModal()" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-2 rounded-xl text-xs hover:bg-[#C59B27] transition cursor-pointer" data-en="Close Window" data-th="ปิดหน้าต่าง" data-cn="关闭窗口">Close Window</button>
         </div>
     </div>
 
@@ -289,9 +306,35 @@
 
     <!-- Interactive Script -->
     <script>
+        let currentLang = 'en';
         let membersData = [
-            { id: 'OGD-M-882104', name: 'คุณสมชาย ใจดี', birthDate: '1995-05-15', tier: 'Prime', freeBays: 3, drink: 'สิทธิ์เดือนเกิด', status: 'Active' }
+            { id: 'OGD-M-882104', name: 'คุณสมชาย ใจดี', birthDate: '1995-05-15', tier: 'Prime', freeBays: '3 hrs', drink: 'สิทธิ์เดือนเกิด', status: 'Active' }
         ];
+
+        function toggleLangDropdown() {
+            const menu = document.getElementById('langDropdownMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.addEventListener('click', function(e) {
+            const btn = document.querySelector('button[onclick="toggleLangDropdown()"]');
+            const menu = document.getElementById('langDropdownMenu');
+            if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const labels = { 'en': 'EN', 'th': 'ไทย', 'cn': '中文' };
+            document.getElementById('langLabel').innerText = labels[lang] || 'EN';
+            document.getElementById('langDropdownMenu').classList.add('hidden');
+            
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) el.innerText = text;
+            });
+        }
 
         function selectTierAndScroll(tierName) {
             document.getElementById('regTier').value = tierName;
@@ -304,7 +347,7 @@
             const fbSpend = parseFloat(document.getElementById('simFbSpend').value) || 0;
 
             let bayDisc = 0.05, fbDisc = 0.05, pointsRate = 1;
-            let freeBayVal = 600; // 1 hr off-peak value
+            let freeBayVal = 600;
 
             if (tier === 'Classic') {
                 bayDisc = 0.05; fbDisc = 0.05; pointsRate = 1; freeBayVal = 600 * 1;
@@ -336,21 +379,22 @@
             const birthDate = document.getElementById('regBirthDate').value;
             const randomID = 'OGD-M-' + Math.floor(100000 + Math.random() * 900000);
 
-            let baysText = '1 ชม.';
-            let drinkText = '-';
+            let baysText = currentLang === 'th' ? '1 ชม.' : (currentLang === 'cn' ? '1小时' : '1 hr');
+            let drinkText = currentLang === 'th' ? 'สิทธิ์เดือนเกิด' : (currentLang === 'cn' ? '生日特权' : 'Birthday Benefit');
+            
             if (tier === 'Prime') {
-                baysText = '3 ชม.';
-                drinkText = 'สิทธิ์เดือนเกิด';
+                baysText = currentLang === 'th' ? '3 ชม.' : (currentLang === 'cn' ? '3小时' : '3 hrs');
+                drinkText = currentLang === 'th' ? 'สิทธิ์เดือนเกิด' : (currentLang === 'cn' ? '生日特权' : 'Birthday Benefit');
             } else if (tier === 'Elite') {
-                baysText = '6 ชม.';
-                drinkText = '1 แก้ว/เดือน';
+                baysText = currentLang === 'th' ? '6 ชม.' : (currentLang === 'cn' ? '6小时' : '6 hrs');
+                drinkText = currentLang === 'th' ? '1 แก้ว/เดือน' : (currentLang === 'cn' ? '每月1杯' : '1 glass/month');
             }
 
             document.getElementById('cardMemberName').innerText = name;
             document.getElementById('cardMemberID').innerText = randomID;
             document.getElementById('cardBirthDate').innerText = formatDateTH(birthDate);
             document.getElementById('cardTierBadge').innerText = tier.toUpperCase();
-            document.getElementById('cardFreeBays').innerText = `${baysText} เหลืออยู่`;
+            document.getElementById('cardFreeBays').innerText = `${baysText} remaining`;
             document.getElementById('cardDrinkStatus').innerText = drinkText;
 
             renderMemberVouchers(tier);
@@ -376,17 +420,83 @@
 
             if (tier === 'Classic') {
                 vouchers = [
-                    { title: 'Free Standard Bay 1 ชม.', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-01', tag: 'Bay' },
-                    { title: 'ส่วนลด F&B 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS' },
-                    { title: 'ส่วนลด Golf Shop 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS' }
+                    { title: 'Free Standard Bay 1 hr', desc: 'Valid during Off-Peak (Mon-Thu 09:00-17:00)', code: 'V-BAY-01', tag: 'Bay' },
+                    { title: 'F&B Discount 5%', desc: 'Show digital pass for POS discount', code: 'V-FNB-POS', tag: 'POS' },
+                    { title: 'Golf Shop Discount 5%', desc: 'Show digital pass for POS discount', code: 'V-SHOP-POS', tag: 'POS' }
                 ];
             } else if (tier === 'Prime') {
                 vouchers = [
-                    { title: 'Free Standard Bay 1 ชม. (3 ใบ)', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-03', tag: 'Bay' },
-                    { title: 'Complimentary Birthday Drink', desc: 'เครื่องดื่ม Signature ฟรี 1 แก้วในเดือนเกิด', code: 'V-BDAY', tag: 'Birthday' },
-                    { title: 'ส่วนลด F&B 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS' },
-                    { title: 'ส่วนลด Golf Shop 10%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS' }
+                    { title: 'Free Standard Bay 1 hr (3 Vouchers)', desc: 'Valid during Off-Peak (Mon-Thu 09:00-17:00)', code: 'V-BAY-03', tag: 'Bay' },
+                    { title: 'Complimentary Birthday Drink', desc: '1 Free Signature Drink during birthday month', code: 'V-BDAY', tag: 'Birthday' },
+                    { title: 'F&B Discount 5%', desc: 'Show digital pass for POS discount', code: 'V-FNB-POS', tag: 'POS' },
+                    { title: 'Golf Shop Discount 10%', desc: 'Show digital pass for POS discount', code: 'V-SHOP-POS', tag: 'POS' }
                 ];
             } else {
                 vouchers = [
-                    { title: 'Free Standard Bay 1 ชม. (6 ใบ)', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-
+                    { title: 'Free Standard Bay 1 hr (6 Vouchers)', desc: 'Valid during Off-Peak (Mon-Thu 09:00-17:00)', code: 'V-BAY-06', tag: 'Bay' },
+                    { title: 'Monthly Free Signature Drink', desc: '1 Free Signature Drink per month (12/yr)', code: 'V-ELITE', tag: 'Monthly' },
+                    { title: 'F&B Discount 10%', desc: 'Show digital pass for POS discount', code: 'V-FNB-POS', tag: 'POS' },
+                    { title: 'Golf Shop Discount 10%', desc: 'Show digital pass for POS discount', code: 'V-SHOP-POS', tag: 'POS' },
+                    { title: 'VVIP Room Upgrade Discount', desc: 'Exclusive discount to upgrade to Floor 3 VVIP room', code: 'V-VVIP', tag: 'Exclusive' }
+                ];
+            }
+
+            document.getElementById('voucherCountBadge').innerText = `${vouchers.length} Vouchers`;
+
+            vouchers.forEach(v => {
+                const div = document.createElement('div');
+                div.className = "bg-[#0A0F1D] border border-slate-800 p-2.5 rounded-xl flex justify-between items-center";
+                div.innerHTML = `
+                    <div>
+                        <div class="flex items-center space-x-1.5 mb-0.5">
+                            <span class="text-[8px] bg-[#D4AF37]/20 text-[#D4AF37] px-1.5 py-0.2 rounded font-bold uppercase">${v.tag}</span>
+                            <h5 class="text-[11px] font-bold text-white">${v.title}</h5>
+                        </div>
+                        <p class="text-[9px] text-slate-400">${v.desc}</p>
+                    </div>
+                    <button type="button" onclick="openVoucherModal('${v.title}', '${v.code}')" class="ml-2 bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-[#D4AF37] text-[10px] font-bold px-2.5 py-1 rounded-lg transition border border-slate-700 whitespace-nowrap cursor-pointer">Use</button>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        function openVoucherModal(title, code) {
+            document.getElementById('vModalTitle').innerText = title;
+            document.getElementById('vModalCode').innerText = code + '-' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('voucherModal').classList.remove('hidden');
+        }
+
+        function closeVoucherModal() {
+            document.getElementById('voucherModal').classList.add('hidden');
+        }
+
+        function renderAdminTable() {
+            const tbody = document.getElementById('adminTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            membersData.forEach(m => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-3 font-mono text-[#D4AF37]">${m.id}</td>
+                    <td class="p-3 font-bold text-white">${m.name}</td>
+                    <td class="p-3">${formatDateTH(m.birthDate)}</td>
+                    <td class="p-3"><span class="bg-amber-500/20 text-[#D4AF37] px-2 py-0.5 rounded font-bold">${m.tier}</span></td>
+                    <td class="p-3 text-emerald-400">${m.freeBays}</td>
+                    <td class="p-3">${m.drink}</td>
+                    <td class="p-3"><span class="text-emerald-400 font-bold">● Active</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+            document.getElementById('adminTotalCount').innerText = membersData.length;
+        }
+
+        window.onload = function() {
+            calculateSavings();
+            renderAdminTable();
+            renderMemberVouchers('Prime');
+            const birthInput = document.getElementById('regBirthDate');
+            if (birthInput) birthInput.value = '1995-05-15';
+        };
+    </script>
+</body>
+</html>
