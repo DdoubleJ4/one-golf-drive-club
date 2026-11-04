@@ -1,1 +1,165 @@
+<!-- ... existing code ... -->
+            <div class="flex items-center space-x-4 md:space-x-6">
+                <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+                    <a href="index.html" class="hover:text-[#D4AF37] transition"><i class="fa-solid fa-arrow-left mr-1"></i> Back to Reservations</a>
+                    <a href="#tiers" class="hover:text-[#D4AF37] transition">Membership Tiers</a>
+                    <a href="#vouchers" class="hover:text-[#D4AF37] transition">My Vouchers</a>
+                    <a href="#simulator" class="hover:text-[#D4AF37] transition">Savings Simulator</a>
+                    <a href="#register" class="bg-[#D4AF37] text-[#0A0F1D] px-4 py-2 rounded-lg font-bold hover:bg-[#C59B27] transition">Apply Now</a>
+                </nav>
+                <div class="relative inline-block text-left">
+<!-- ... existing code ... -->
+                    <p class="text-xs text-[#D4AF37] font-semibold uppercase tracking-wider mb-4">Active Digital Membership Pass</p>
+                    
+                    <!-- My Vouchers & E-Coupons Section -->
+                    <div id="vouchers" class="border-t border-slate-800 pt-6 mt-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-sm font-bold text-white flex items-center"><i class="fa-solid fa-[#D4AF37] fa-ticket mr-2 text-[#D4AF37]"></i> สิทธิประโยชน์ & Vouchers ของคุณ (Member E-Vouchers)</h4>
+                            <span class="text-[10px] bg-amber-500/20 text-[#D4AF37] px-2 py-0.5 rounded font-mono font-bold" id="voucherCountBadge">4 Vouchers Available</span>
+                        </div>
 
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="memberVouchersGrid">
+                            <!-- Dynamic Vouchers injected via JS based on selected Tier -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Notification for Voucher Redemption -->
+    <div id="voucherModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-[#111827] border-2 border-[#D4AF37] rounded-2xl p-6 max-w-sm w-full text-center relative shadow-2xl">
+            <div class="w-16 h-16 bg-[#D4AF37]/20 border border-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-4 text-[#D4AF37] text-2xl">
+                <i class="fa-solid fa-qrcode"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-1" id="vModalTitle">ใช้สิทธิ์ Voucher</h3>
+            <p class="text-xs text-slate-400 mb-4" id="vModalSubtitle">ยื่นรหัสนี้ให้พนักงานหน้าเคาน์เตอร์เพื่อใช้สิทธิ์</p>
+            <div class="bg-[#0A0F1D] border border-slate-700 p-4 rounded-xl mb-4">
+                <div class="text-2xl font-mono font-bold text-[#D4AF37] tracking-widest" id="vModalCode">OGD-VOUCH-9921</div>
+                <div class="text-[10px] text-slate-500 mt-1">หมดอายุ: 31 ธ.ค. 2026</div>
+            </div>
+            <button onclick="closeVoucherModal()" class="w-full bg-[#D4AF37] text-[#0A0F1D] font-bold py-2.5 rounded-xl text-sm hover:bg-[#C59B27] transition">ปิดหน้าต่าง</button>
+        </div>
+    </div>
+<!-- ... existing code ... -->
+        // Registration Submission Handler
+        function handleRegistration(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const tier = document.getElementById('regTier').value;
+            const birthDate = document.getElementById('regBirthDate').value;
+
+            const randomID = 'OGD-M-' + Math.floor(100000 + Math.random() * 900000);
+            
+            let baysText = '1 ชม.';
+            let drinkText = '-';
+            if (tier === 'Prime') {
+                baysText = '3 ชม.';
+                drinkText = 'สิทธิ์เดือนเกิด';
+            } else if (tier === 'Elite') {
+                baysText = '6 ชม.';
+                drinkText = '1 แก้ว/เดือน';
+            }
+
+            // Update Card Preview
+            document.getElementById('cardMemberName').innerText = name;
+            document.getElementById('cardMemberID').innerText = randomID;
+            document.getElementById('cardBirthDate').innerText = formatDateTH(birthDate);
+            document.getElementById('cardTierBadge').innerText = tier.toUpperCase();
+            document.getElementById('cardFreeBays').innerText = `${baysText} เหลืออยู่`;
+            document.getElementById('cardDrinkStatus').innerText = drinkText;
+
+            // Render Member Vouchers
+            renderMemberVouchers(tier);
+
+            // Push to Admin State
+            membersData.unshift({
+                id: randomID,
+                name: name,
+                birthDate: birthDate,
+                tier: tier,
+                freeBays: parseInt(baysText),
+                drink: drinkText,
+                points: 0,
+                status: 'Active'
+            });
+
+            renderAdminTable();
+            updateAdminKPIs();
+
+            document.getElementById('digital-pass').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Render Vouchers based on Member Tier
+        function renderMemberVouchers(tier) {
+            const grid = document.getElementById('memberVouchersGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            let vouchers = [];
+            if (tier === 'Classic') {
+                vouchers = [
+                    { title: 'Free Standard Bay 1 ชม.', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-01', tag: 'Bay Voucher' },
+                    { title: 'ส่วนลด F&B 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS Discount' },
+                    { title: 'ส่วนลด Golf Shop 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS Discount' }
+                ];
+            } else if (tier === 'Prime') {
+                vouchers = [
+                    { title: 'Free Standard Bay 1 ชม. (3 ใบ)', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-03', tag: 'Bay Voucher' },
+                    { title: 'Complimentary Birthday Drink', desc: 'เครื่องดื่ม Signature ฟรี 1 แก้วในเดือนเกิด', code: 'V-BDAY-DRINK', tag: 'Birthday' },
+                    { title: 'ส่วนลด F&B 5%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS Discount' },
+                    { title: 'ส่วนลด Golf Shop 10%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS Discount' }
+                ];
+            } else {
+                vouchers = [
+                    { title: 'Free Standard Bay 1 ชม. (6 ใบ)', desc: 'ใช้สิทธิ์ช่วง Off-Peak (จันทร์-พฤหัสบดี 09:00-17:00)', code: 'V-BAY-06', tag: 'Bay Voucher' },
+                    { title: 'Monthly Free Signature Drink Pass', desc: 'รับเครื่องดื่ม Signature ฟรี 1 แก้ว/เดือน (รวม 12 แก้ว/ปี)', code: 'V-ELITE-DRINK', tag: 'Monthly Pass' },
+                    { title: 'ส่วนลด F&B 10%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด F&B ผ่านเครื่อง POS หน้างาน', code: 'V-FNB-POS', tag: 'POS Discount' },
+                    { title: 'ส่วนลด Golf Shop 10%', desc: 'แสดงบัตรสมาชิกเพื่อรับส่วนลด Golf Shop ผ่านเครื่อง POS หน้างาน', code: 'V-SHOP-POS', tag: 'POS Discount' },
+                    { title: 'VVIP Room Upgrade Discount', desc: 'สิทธิ์ส่วนลดพิเศษในการอัปเกรดเป็นห้อง VVIP ชั้น 3', code: 'V-VVIP-UPG', tag: 'Exclusive' }
+                ];
+            }
+
+            document.getElementById('voucherCountBadge').innerText = `${vouchers.length} Vouchers Available`;
+
+            vouchers.forEach(v => {
+                const div = document.createElement('div');
+                div.className = "bg-[#0A0F1D] border border-slate-800 p-3.5 rounded-xl flex justify-between items-center hover:border-[#D4AF37]/50 transition";
+                div.innerHTML = `
+                    <div>
+                        <div class="flex items-center space-x-2 mb-1">
+                            <span class="text-[9px] bg-[#D4AF37]/20 text-[#D4AF37] px-1.5 py-0.2 rounded font-bold uppercase">${v.tag}</span>
+                            <h5 class="text-xs font-bold text-white">${v.title}</h5>
+                        </div>
+                        <p class="text-[10px] text-slate-400">${v.desc}</p>
+                    </div>
+                    <button type="button" onclick="openVoucherModal('${v.title}', '${v.code}')" class="ml-3 bg-slate-800 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-[#D4AF37] text-[10px] font-bold px-3 py-1.5 rounded-lg transition border border-slate-700 whitespace-nowrap">
+                        กดใช้สิทธิ์
+                    </button>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        function openVoucherModal(title, code) {
+            document.getElementById('vModalTitle').innerText = title;
+            document.getElementById('vModalCode').innerText = code + '-' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('voucherModal').classList.remove('hidden');
+        }
+
+        function closeVoucherModal() {
+            document.getElementById('voucherModal').classList.add('hidden');
+        }
+
+        window.onload = function() {
+            calculateSavings();
+            renderAdminTable();
+            renderMemberVouchers('Prime');
+            
+            const birthInput = document.getElementById('regBirthDate');
+            if (birthInput) birthInput.value = '1995-05-15';
+        };
+<!-- ... existing code ... -->
